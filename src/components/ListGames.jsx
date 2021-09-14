@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Menu = () => {
+const ListGames = () => {
     return (
         <div>
-            MENU
+            
         </div>
     )
 }
 
-export default Menu
+export default ListGames
