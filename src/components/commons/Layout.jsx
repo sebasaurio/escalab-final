@@ -1,14 +1,14 @@
 import React from 'react'
 
 import Menu from './Menu'
-import Footer from './Footer'
+import '../../assets/styles/layout.css'
 
 const Layout = ({children}) => {
     return (
         <div className='layout'>
             <Menu/>
-            {children}
-            <Footer/>
+                {children}
+            
         </div>
     )
 }
