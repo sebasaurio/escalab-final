@@ -1,7 +1,7 @@
 import React from 'react'
 
 import {HIGHEST_GAMES} from '../constant/index'
-import {useApiCall} from '../customHooks/useApiCall'
+import { useApiCall } from '../customHooks/useApiCall'
 
 import HighlightGame from './HighlightGame'
 

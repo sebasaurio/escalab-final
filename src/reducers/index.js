@@ -5,6 +5,11 @@ export const reducer = (state, action) => {
                 ...state,
                 sectionActive: action.payload
             }
+        case 'SET_FAVORITE':
+            return {
+                ...state,
+                favoriteGames: [...state.favoriteGames, action.payload]
+            }
         default:
             return state
     }

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const GameDetail = () => {
+const GameDetail = ({game}) => {
     return (
         <div>
             

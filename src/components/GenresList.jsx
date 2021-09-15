@@ -1,14 +1,15 @@
 import React from 'react'
+import {Chip} from '@material-ui/core'
 
 const GenresList = ({genres}) => {
     return (
-        <div>
+        <>
             {
-                genres.map(genre => (
-                    <span key={genre.id}>{genre.name}</span>
+                genres && genres.map(genre => (
+                    <Chip key={genre.id} label={genre.name} m={3}/>
                 ))
             }
-        </div>
+        </>
     )
 }
 

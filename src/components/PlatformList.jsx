@@ -1,16 +1,15 @@
 import React from 'react'
+import {Chip} from '@material-ui/core'
 
 const PlatformList = ({platforms}) => {
     return (
-        <div>
-            <ul>
+        <>
             {
-                platforms.map((platform, index) => (
-                    <li key={index}>{platform.platform.name}</li>
+                platforms && platforms.map((platform, index) => (
+                    <Chip key={index} label={platform.platform.name}/>
                 ))
             }
-            </ul>
-        </div>
+        </>
     )
 }
 

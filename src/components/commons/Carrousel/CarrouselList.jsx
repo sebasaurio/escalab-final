@@ -15,7 +15,7 @@ const CarrouselList = ({images}) => {
             animation='slide'
         >
             {
-                images.map((image, index) => <CarrouselItem key={index} item={image}/>)
+                images.map((image, index) => <CarrouselItem key={index} item={image} className='carrousel-image'/>)
             }
         </Carrousel>
     )
