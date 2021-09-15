@@ -11,7 +11,6 @@ function App() {
   return (
     <BrowserRouter>
       <Layout>
-        Aca va el contenido!
         <Switch>
           <Route exact path='/'/>
           <Route exact path='/top' component={HighlightsGames}/>

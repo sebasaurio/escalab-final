@@ -2,6 +2,7 @@ import React from 'react'
 import {Drawer, Toolbar, Typography, Divider, List, ListItem, ListItemText, makeStyles} from '@material-ui/core'
 import {Link} from 'react-router-dom'
 
+import logo from '../../assets/static/images/logo.png'
 import Footer from './Footer'
 
 const drawerWidth = 240;
@@ -46,16 +47,17 @@ const Menu = () => {
                 >
                 <div>
                     <Toolbar>
+                        <img src={logo} alt="react games" width='32' height='32'/>
                         <Typography variant='h6'>
-                            React Games
+                            React Games 
                         </Typography>
                     </Toolbar>
                     <Divider/>
                     <List>
                         {
                             ["Top", "Platforms", "Favorites"].map((text, index) => (
-                                <Link to={text.toLowerCase()} className={classes.link}>
-                                    <ListItem button key={text}>
+                                <Link key={text} to={text.toLowerCase()} className={classes.link}>
+                                    <ListItem button >
                                         <ListItemText primary={text}/>
                                     </ListItem>
                                 </Link>

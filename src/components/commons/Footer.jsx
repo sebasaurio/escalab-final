@@ -8,7 +8,7 @@ const Footer = () => {
         <footer className='footer'>
             <div className='footer-made'>
                 <Typography variant='body1'>
-                    2021.
+                    2021
                 </Typography>
                 <Typography variant='body1'>
                     Made by Sebastian Cardoza D. 🖥️
