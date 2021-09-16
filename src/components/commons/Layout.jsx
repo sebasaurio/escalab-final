@@ -7,8 +7,7 @@ const Layout = ({children}) => {
     return (
         <div className='layout'>
             <Menu/>
-                {children}
-            
+            {children}
         </div>
     )
 }

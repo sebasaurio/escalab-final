@@ -11,6 +11,8 @@ import { reducer } from './reducers';
 
 import App from './routes/App';
 
+import '../src/assets/styles/main.css'
+
 //init state
 const initialState = {
   favoriteGames : [],

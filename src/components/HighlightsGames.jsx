@@ -1,12 +1,13 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 
-import {HIGHEST_GAMES} from '../constant/index'
+import { HIGHEST_GAMES } from '../constant/index'
 import { useApiCall } from '../customHooks/useApiCall'
 
 import HighlightGame from './HighlightGame'
 
 const HighlightsGames = () => {
 
+    //usar useeffect
     const {response} = useApiCall({
          method: 'GET',
          url: HIGHEST_GAMES('2021-01-01', '2021-09-13', '+rating'),
