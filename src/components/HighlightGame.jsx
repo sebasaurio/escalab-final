@@ -1,19 +1,39 @@
-import React,{useState} from 'react'
+import React,{useState, useEffect} from 'react'
+import {connect} from 'react-redux'
+
 import {setFavorite} from '../actions/index'
 
 import {Card,CardContent, CardActions, Typography, Button} from '@material-ui/core'
-import {Favorite} from '@material-ui/icons'
+import {Favorite, HighlightOff} from '@material-ui/icons'
 
 import GenresList from './GenresList'
 import PlatformList from './PlatformList'
 
 import CarrouselList from './commons/Carrousel/CarrouselList'
 
-const HighlightGame = ({game}) => {
+const HighlightGame = (props) => {
+    const {game, favoriteGames} = props
+    const {short_screenshots} = game
 
-    const images = [...game.short_screenshots]
+    const [favorite, setFavorite] = useState(null)
 
-    const [favorite, setFavorite] = useState(false)
+    const handleSetFavorite = () => {
+        props.setFavorite(game)
+        setFavorite(true)
+    }
+
+    const handleRemoveFavorite = () => {
+        setFavorite(false)
+    }
+
+    const IsAlreadyFavorite = () => {
+        const isFavorite = favoriteGames.filter(favoriteGame => favoriteGame.id === game.id)
+        isFavorite.length && setFavorite(true)
+    }
+
+    useEffect(() => {
+        IsAlreadyFavorite()
+    },[])
 
     return (
         <Card className='hightlight-game'>
@@ -22,24 +42,37 @@ const HighlightGame = ({game}) => {
             </Typography>
 
             <div className='hightlight-game-info'>
-                <CarrouselList images={images}/>
+                <CarrouselList images={short_screenshots}/>
                 <CardContent>
                     <div className='game-description'>
                         <span>Released on: {game.released}</span>
                     </div>
-                    <div className='game-metacritic'>
-                        <span>{game.metacritic} points on metacritic</span>
-                    </div>
-
+                    {
+                        game.metacritic && (
+                            <div className='game-metacritic'>
+                                <span>{game.metacritic} points on metacritic</span>
+                            </div>
+                        )
+                    }
                     <div className='game-tags'>
                         <GenresList genres={game.genres}/>
                         <PlatformList platforms={game.platforms}/>
                     </div>
+
                 </CardContent>
                 <CardActions>
-                    <Button size='small' color='primary'>
-                        <Favorite/>
-                    </Button>
+                    {
+                        !favorite ? (
+                            <Button size='small' color='primary' onClick={handleSetFavorite}>
+                                <Favorite/>
+                            </Button>
+                        )
+                        : (
+                            <Button size='small' color='primary' onClick={handleRemoveFavorite}>
+                                <HighlightOff/>
+                            </Button>
+                        )
+                    }
                 </CardActions>
             </div>
             
@@ -47,4 +80,14 @@ const HighlightGame = ({game}) => {
     )
 }
 
-export default HighlightGame
+const mapStateToProps = (state) => {
+    return {
+        favoriteGames : state.favoriteGames
+    }
+}
+
+const mapDispatchToProps  = {
+    setFavorite
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HighlightGame)

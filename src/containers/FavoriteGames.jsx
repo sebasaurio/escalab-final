@@ -1,9 +1,11 @@
 import React from 'react'
 
+import FavoritesGames from '../components/FavoritesGames'
+
 const FavoriteGames = () => {
     return (
         <div>
-            aca voy a mostar los juegos favoritos que he estado eligiendo, y quiero ordenarlos por ranking mio, 
+            <FavoritesGames/>
         </div>
     )
 }

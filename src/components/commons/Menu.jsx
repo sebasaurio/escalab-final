@@ -32,7 +32,14 @@ const useStyles = makeStyles((theme) => ({
     },
     link:{
         textDecoration: 'none',
-        color: '#e8e8e8'
+        color: '#e8e8e8',
+        '&:hover': {
+            backgroundColor: '#ababab',
+            color: '#25717d',
+        }
+    },
+    dividerColor:{
+        backgroundColor: '#adadad'
     }
 }))
 
@@ -57,7 +64,7 @@ const Menu = () => {
                             React Games 
                         </Typography>
                     </Toolbar>
-                    <Divider/>
+                    <Divider light={true} className={classes.dividerColor}/>
                     <List>
                         {
                             ["Top", "Platforms", "Favorites"].map((text) => (
@@ -65,10 +72,11 @@ const Menu = () => {
                                     <ListItem button >
                                         <ListItemText primary={text}/>
                                     </ListItem>
-                                </Link>                               
+                                </Link>
                             ))
                         }
                     </List>
+                    <Divider light={true} className={classes.dividerColor}/>
                     <Footer/>
                 </div>
             </Drawer>
