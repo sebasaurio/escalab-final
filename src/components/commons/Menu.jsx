@@ -3,6 +3,8 @@ import {Drawer, Toolbar, Typography, Divider, List, ListItem, ListItemText, make
 import {Link} from 'react-router-dom'
 
 import logo from '../../assets/static/images/logo.png'
+
+import PlatformsList from './PlatformsList'
 import Footer from './Footer'
 
 const drawerWidth = 240;
@@ -38,13 +40,16 @@ const useStyles = makeStyles((theme) => ({
             color: '#25717d',
         }
     },
+    listItemText: {
+        textDecoration: 'none',
+        color: '#e8e8e8'
+    },
     dividerColor:{
         backgroundColor: '#adadad'
     }
 }))
 
-const Menu = () => {
-
+const Menu = ({parentPlatforms}) => {
     const classes = useStyles()
 
     return (
@@ -77,6 +82,9 @@ const Menu = () => {
                         }
                     </List>
                     <Divider light={true} className={classes.dividerColor}/>
+                    {
+                        parentPlatforms?.length > 0 && <PlatformsList platforms={parentPlatforms} classes={classes}/>
+                    }
                     <Footer/>
                 </div>
             </Drawer>

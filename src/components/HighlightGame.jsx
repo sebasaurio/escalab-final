@@ -1,10 +1,10 @@
 import React,{useState, useEffect} from 'react'
 import {connect} from 'react-redux'
 
-import {setFavorite} from '../actions/index'
+import {setFavorite, deleteFavorite} from '../actions/index'
 
 import {Card,CardContent, CardActions, Typography, Button} from '@material-ui/core'
-import {Favorite, HighlightOff, ArrowRightAlt} from '@material-ui/icons'
+import {Favorite, HighlightOff} from '@material-ui/icons'
 
 import GenresList from './GenresList'
 import PlatformList from './PlatformList'
@@ -25,6 +25,7 @@ const HighlightGame = (props) => {
     }
 
     const handleRemoveFavorite = () => {
+        props.deleteFavorite(game.id)
         setFavorite(false)
     }
 
@@ -94,7 +95,8 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps  = {
-    setFavorite
+    setFavorite,
+    deleteFavorite
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(HighlightGame)

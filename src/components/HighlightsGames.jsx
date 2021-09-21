@@ -8,9 +8,9 @@ import HighlightGame from './HighlightGame'
 const HighlightsGames = () => {
 
     //usar useeffect
-    const {response} = useApiCall({
-         method: 'GET',
-         url: HIGHEST_GAMES('2021-01-01', '2021-09-13', '+rating'),
+     const {response} = useApiCall({
+          method: 'GET',
+          url: HIGHEST_GAMES('2021-01-01', '2021-09-13', '+rating'),
     })
 
     return (
