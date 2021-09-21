@@ -4,12 +4,14 @@ import {connect} from 'react-redux'
 import {setFavorite} from '../actions/index'
 
 import {Card,CardContent, CardActions, Typography, Button} from '@material-ui/core'
-import {Favorite, HighlightOff} from '@material-ui/icons'
+import {Favorite, HighlightOff, ArrowRightAlt} from '@material-ui/icons'
 
 import GenresList from './GenresList'
 import PlatformList from './PlatformList'
 
 import CarrouselList from './commons/Carrousel/CarrouselList'
+
+import '../assets/styles/highlightGame.css'
 
 const HighlightGame = (props) => {
     const {game, favoriteGames} = props
@@ -33,19 +35,24 @@ const HighlightGame = (props) => {
 
     useEffect(() => {
         IsAlreadyFavorite()
-    },[])
+    })
 
     return (
         <Card className='hightlight-game'>
-            <Typography variant='h5' className='name-header'>
-                {game.name}
-            </Typography>
+            <div className='hightlight-game-header'>
+                <Typography variant='h5' className='name-header'>
+                    {game.name}
+                </Typography>
+                <Button size='small' color='primary' variant='text' className='view-more'>
+                    <Typography variant='inherit'> View more </Typography>
+                </Button>
+            </div>
 
             <div className='hightlight-game-info'>
                 <CarrouselList images={short_screenshots}/>
                 <CardContent>
                     <div className='game-description'>
-                        <span>Released on: {game.released}</span>
+                        <span>Released on: </span> {game.released}
                     </div>
                     {
                         game.metacritic && (
@@ -60,16 +67,16 @@ const HighlightGame = (props) => {
                     </div>
 
                 </CardContent>
-                <CardActions>
+                <CardActions className='hightlight-game-actions'>
                     {
                         !favorite ? (
                             <Button size='small' color='primary' onClick={handleSetFavorite}>
-                                <Favorite/>
+                                <Typography variant='inherit' className='action-text-button' > Add to favorite </Typography> <Favorite/>
                             </Button>
                         )
                         : (
                             <Button size='small' color='primary' onClick={handleRemoveFavorite}>
-                                <HighlightOff/>
+                                <Typography variant='inherit' className='action-text-button' > Remove from favorites </Typography> <HighlightOff/>
                             </Button>
                         )
                     }
