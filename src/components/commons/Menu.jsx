@@ -1,4 +1,8 @@
 import React from 'react'
+import {useSelector, useDispatch} from 'react-redux'
+import {setPlatform, setSection} from '../../actions/index'
+import PropTypes from 'prop-types'
+
 import {Drawer, Toolbar, Typography, Divider, List, ListItem, ListItemText, makeStyles} from '@material-ui/core'
 import {Link} from 'react-router-dom'
 
@@ -33,12 +37,19 @@ const useStyles = makeStyles((theme) => ({
         padding: theme.spacing(3),
     },
     link:{
+        textDecoration: 'none'
+    },
+    linkItem:{
         textDecoration: 'none',
         color: '#e8e8e8',
         '&:hover': {
             backgroundColor: '#ababab',
             color: '#25717d',
         }
+    },
+    linkActive:{
+        color: '#7fadeb',
+        backgroundColor: '#121111'
     },
     listItemText: {
         textDecoration: 'none',
@@ -51,6 +62,18 @@ const useStyles = makeStyles((theme) => ({
 
 const Menu = ({parentPlatforms}) => {
     const classes = useStyles()
+
+    const sectionActive = useSelector((state) => state.sectionActive)
+    const platformActive = useSelector((state) => state.platformActive)
+    const dispatch = useDispatch()
+
+    const handleSetSection = (section) => {
+        dispatch(setSection(section))
+    }
+
+    const handleSetPlatform = (platform) => {
+        dispatch(setPlatform(platform))
+    }
 
     return (
         <div className={classes.menu}>
@@ -73,8 +96,8 @@ const Menu = ({parentPlatforms}) => {
                     <List>
                         {
                             ["Top", "Platforms", "Favorites"].map((text) => (
-                                <Link key={text} to={text.toLowerCase()} className={classes.link}>
-                                    <ListItem button >
+                                <Link key={text} to={text.toLowerCase()} className={classes.link} onClick={() => handleSetSection(text)}>
+                                    <ListItem button className={`${classes.linkItem} ${text.toLowerCase() === sectionActive.toLowerCase() && classes.linkActive}`}>
                                         <ListItemText primary={text}/>
                                     </ListItem>
                                 </Link>
@@ -90,6 +113,10 @@ const Menu = ({parentPlatforms}) => {
             </Drawer>
         </div>
     )
+}
+
+Menu.propTypes = {
+    parentPlatforms: PropTypes.array.isRequired
 }
 
 export default Menu

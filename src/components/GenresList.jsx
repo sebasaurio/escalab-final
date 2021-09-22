@@ -1,4 +1,6 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+
 import {Chip} from '@material-ui/core'
 
 const GenresList = ({genres}) => {
@@ -11,6 +13,10 @@ const GenresList = ({genres}) => {
             }
         </div>
     )
+}
+
+GenresList.propTypes = {
+    genres: PropTypes.array.isRequired
 }
 
 export default GenresList

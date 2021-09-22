@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import {Link} from 'react-router-dom'
 import {List, ListSubheader, ListItem, ListItemText} from '@material-ui/core'
@@ -15,7 +16,7 @@ const PlatformsList = ({platforms, classes}) => (
                 }>
             {
                 platforms.map(platform => (
-                    <Link key={platform.id} to={`platform/${platform.id}`} className={classes.link}>
+                    <Link key={platform.id} to={`platform/${platform.id}`} className={classes.linkItem}>
                         <ListItem button >
                             <ListItemText primary={platform.name}/>
                         </ListItem>
@@ -26,5 +27,9 @@ const PlatformsList = ({platforms, classes}) => (
     </div>
 )
 
+PlatformsList.propTypes = {
+    platforms: PropTypes.object.isRequired,
+    classes: PropTypes.object.isRequired
+}
 
 export default PlatformsList

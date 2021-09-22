@@ -1,4 +1,6 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+
 import {Chip} from '@material-ui/core'
 
 const PlatformList = ({platforms}) => {
@@ -11,6 +13,10 @@ const PlatformList = ({platforms}) => {
             }
         </div>
     )
+}
+
+PlatformList.propTypes = {
+    platforms: PropTypes.array.isRequired
 }
 
 export default PlatformList

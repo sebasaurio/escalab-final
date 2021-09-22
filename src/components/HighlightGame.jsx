@@ -1,21 +1,15 @@
 import React,{useState, useEffect} from 'react'
 import {connect} from 'react-redux'
-
 import {setFavorite, deleteFavorite} from '../actions/index'
-
-import {Card,CardContent, CardActions, Typography, Button} from '@material-ui/core'
+import {Card, CardActions, Typography, Button} from '@material-ui/core'
 import {Favorite, HighlightOff} from '@material-ui/icons'
 
-import GenresList from './GenresList'
-import PlatformList from './PlatformList'
-
-import CarrouselList from './commons/Carrousel/CarrouselList'
+import GameDetail from './GameDetail'
 
 import '../assets/styles/highlightGame.css'
 
 const HighlightGame = (props) => {
     const {game, favoriteGames} = props
-    const {short_screenshots} = game
 
     const [favorite, setFavorite] = useState(null)
 
@@ -40,34 +34,8 @@ const HighlightGame = (props) => {
 
     return (
         <Card className='hightlight-game'>
-            <div className='hightlight-game-header'>
-                <Typography variant='h5' className='name-header'>
-                    {game.name}
-                </Typography>
-                <Button size='small' color='primary' variant='text' className='view-more'>
-                    <Typography variant='inherit'> View more </Typography>
-                </Button>
-            </div>
-
-            <div className='hightlight-game-info'>
-                <CarrouselList images={short_screenshots}/>
-                <CardContent>
-                    <div className='game-description'>
-                        <span>Released on: </span> {game.released}
-                    </div>
-                    {
-                        game.metacritic && (
-                            <div className='game-metacritic'>
-                                <span>{game.metacritic} points on metacritic</span>
-                            </div>
-                        )
-                    }
-                    <div className='game-tags'>
-                        <GenresList genres={game.genres}/>
-                        <PlatformList platforms={game.platforms}/>
-                    </div>
-
-                </CardContent>
+            <GameDetail game={game}/>
+            <div>
                 <CardActions className='hightlight-game-actions'>
                     {
                         !favorite ? (

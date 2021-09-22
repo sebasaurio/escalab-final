@@ -1,31 +1,30 @@
 import React from 'react'
-import {connect} from 'react-redux'
-
-import {Button, ButtonGroup} from '@material-ui/core'
-import {ClearAll, Reorder, ViewList} from '@material-ui/icons'
+import {useSelector,useDispatch} from 'react-redux'
+import {clearFavorites} from '../actions/index'
+import {Button, ButtonGroup, Card} from '@material-ui/core'
+import {ClearAll, ViewHeadline, ViewAgenda} from '@material-ui/icons'
 
 import GameDetail from './GameDetail'
 import Empty from './commons/Empty'
 
 import '../assets/styles/favoriteGames.css'
 
-const FavoritesGames = (props) => {
+const FavoritesGames = () => {
+    const favoriteGames = useSelector((state) => state.favoriteGames)
+    const dispatch = useDispatch()
 
-    const {favoriteGames} = props
+    const handleClearFavorites = () => {
+        dispatch(clearFavorites(''))
+    }
 
     return (
         <div className='favorite-games-container'>
             <div className='favorite-games-options'>
-                <div>
-                    <Button startIcon={ <ClearAll/>}>
-                    </Button>
-                </div>
-                <div className='favorite-games-order'>
-                    <ButtonGroup variant='contained'>
-                        <Button startIcon={ <ViewList/>}/>
-                        <Button startIcon={ <Reorder/>}/>
-                    </ButtonGroup>
-                </div>
+                <Button variant='contained' startIcon={ <ClearAll/>} className='clear-all' onClick={handleClearFavorites}/>
+                <ButtonGroup variant='contained'>
+                    <Button startIcon={ <ViewHeadline/>}/>
+                    <Button startIcon={ <ViewAgenda/>}/>
+                </ButtonGroup>
             </div>
             <div className='favorite-games-list'>
             {
@@ -33,7 +32,9 @@ const FavoritesGames = (props) => {
                 ? <Empty/>
                 : (
                     favoriteGames.map(game => (
-                        <GameDetail key={game.id} game={game}/>
+                        <Card key={game.id} className='favorite-game'>
+                            <GameDetail game={game}/>
+                        </Card>
                     ))
                 )
             }
@@ -42,11 +43,4 @@ const FavoritesGames = (props) => {
     )
 }
 
-//pasar a useSelect y Dispatch
-const mapStateToProps = (state) => {
-    return {
-        favoriteGames: state.favoriteGames
-    }
-}
-
-export default connect(mapStateToProps, null)(FavoritesGames)
+export default FavoritesGames

@@ -17,6 +17,7 @@ import '../src/assets/styles/main.css'
 const initialState = {
   favoriteGames : [],
   sectionActive : 'Top',
+  platformActive : '',
   userLogging : {}
 }
 

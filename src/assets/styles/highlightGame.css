@@ -3,43 +3,6 @@
     margin-top: 15px;
 }
 
-.hightlight-game-header{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.view-more{
-    height: 50%;
-}
-
-.name-header{
-    color: #1c1f1c;
-    font-weight: bold;
-    padding: 15px 0 10px 0;
-}
-
-.hightlight-game-info{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.game-description{
-
-}
-
-.game-metacritic{
-
-}
-
-.game-tags{
-    margin: 10px 0 10px 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
 .hightlight-game-actions{
     display: flex;
     flex-direction: row;
