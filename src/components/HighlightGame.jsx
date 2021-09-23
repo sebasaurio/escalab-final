@@ -4,7 +4,7 @@ import {setFavorite, deleteFavorite} from '../actions/index'
 import {Card, CardActions, Typography, Button} from '@material-ui/core'
 import {Favorite, HighlightOff} from '@material-ui/icons'
 
-import GameDetail from './GameDetail'
+import GameDetail from './GameDescription'
 
 import '../assets/styles/highlightGame.css'
 

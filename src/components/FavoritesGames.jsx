@@ -1,10 +1,10 @@
-import React from 'react'
+import React,{useState} from 'react'
 import {useSelector,useDispatch} from 'react-redux'
 import {clearFavorites} from '../actions/index'
-import {Button, ButtonGroup, Card} from '@material-ui/core'
+import {Button, ButtonGroup, Card, List, ListItem, Grid} from '@material-ui/core'
 import {ClearAll, ViewHeadline, ViewAgenda} from '@material-ui/icons'
 
-import GameDetail from './GameDetail'
+import GameDetail from './GameDescription'
 import Empty from './commons/Empty'
 
 import '../assets/styles/favoriteGames.css'
@@ -14,7 +14,13 @@ const FavoritesGames = () => {
     const dispatch = useDispatch()
 
     const handleClearFavorites = () => {
-        dispatch(clearFavorites(''))
+        dispatch(clearFavorites())
+    }
+
+    const [viewStyle, setViewStyle] = useState('Card')
+
+    const handleChangeViewStyle = (style) => {
+        setViewStyle(style)
     }
 
     return (
@@ -22,8 +28,8 @@ const FavoritesGames = () => {
             <div className='favorite-games-options'>
                 <Button variant='contained' startIcon={ <ClearAll/>} className='clear-all' onClick={handleClearFavorites}/>
                 <ButtonGroup variant='contained'>
-                    <Button startIcon={ <ViewHeadline/>}/>
-                    <Button startIcon={ <ViewAgenda/>}/>
+                    <Button startIcon={ <ViewHeadline/>} onClick={() => handleChangeViewStyle('List')} className={`${viewStyle === 'List' && 'button-style-active'}`}/>
+                    <Button startIcon={ <ViewAgenda/>} onClick={() => handleChangeViewStyle('Card')} className={`${viewStyle === 'Card' && 'button-style-active'}`}/>
                 </ButtonGroup>
             </div>
             <div className='favorite-games-list'>
@@ -31,11 +37,25 @@ const FavoritesGames = () => {
                 !favoriteGames.length 
                 ? <Empty/>
                 : (
-                    favoriteGames.map(game => (
-                        <Card key={game.id} className='favorite-game'>
-                            <GameDetail game={game}/>
-                        </Card>
-                    ))
+                    viewStyle === 'Card'
+                    ? (
+                        favoriteGames.map(game => ( 
+                            <Card key={game.id} className='favorite-game'><GameDetail game={game}/> </Card> 
+                        ))
+                    )
+                    : (
+                        <Grid container spacing={1}>
+                            <List className='favorite-as-list'>
+                                {
+                                    favoriteGames.map(game => (
+                                        <ListItem key={game.id} className='favorite-game'>
+                                            <GameDetail game={game}/>
+                                        </ListItem>
+                                    ))
+                                }
+                            </List>
+                        </Grid>
+                    )
                 )
             }
             </div>
