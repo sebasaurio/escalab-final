@@ -23,7 +23,9 @@ const GameDetail = ({game}) => {
             </div>
 
             <div className='game-detail-info'>
-                <CarrouselList images={game.short_screenshots}/>
+                <div className='game-carrousel-container'>
+                    <CarrouselList images={game.short_screenshots}/>
+                </div>
                 <p className='game-detail-item'>
                     <span>Released on: </span> {game.released}
                 </p>

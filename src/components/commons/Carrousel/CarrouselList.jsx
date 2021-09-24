@@ -4,8 +4,6 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import CarrouselItem from './CarrouselItem'
 
-import '../../../assets/styles/carrouselList.css'
-
 const CarrouselList = ({images}) => {
     return (
         <Carrousel

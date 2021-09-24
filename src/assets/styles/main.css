@@ -9,3 +9,31 @@ body{
     align-items: center;
     background-color: blue;
 }
+
+
+.carrousel{
+    height: 100%;
+    width: 100%;
+}
+
+.carrousel-image-source{
+    width: 100%;
+    height: auto;
+}
+
+@media (min-width: 576px) { 
+    
+}
+
+@media (min-width: 768px) { 
+    
+}
+
+@media (min-width: 992px) {  
+    
+}
+
+@media (min-width: 1200px) { 
+
+    
+}

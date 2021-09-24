@@ -2,8 +2,6 @@ import React from 'react'
 
 import {Paper} from '@material-ui/core'
 
-import '../../../assets/styles/carrouselItem.css'
-
 const CarrouselItem = ({item}) => {
     return (
         <Paper>

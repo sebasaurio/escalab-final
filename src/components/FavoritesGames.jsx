@@ -27,7 +27,7 @@ const FavoritesGames = () => {
         <div className='favorite-games-container'>
             <div className='favorite-games-options'>
                 <Button variant='contained' startIcon={ <ClearAll/>} className='clear-all' onClick={handleClearFavorites}/>
-                <ButtonGroup variant='contained'>
+                <ButtonGroup variant='contained' className='style-buttons'>
                     <Button startIcon={ <ViewHeadline/>} onClick={() => handleChangeViewStyle('List')} className={`${viewStyle === 'List' && 'button-style-active'}`}/>
                     <Button startIcon={ <ViewAgenda/>} onClick={() => handleChangeViewStyle('Card')} className={`${viewStyle === 'Card' && 'button-style-active'}`}/>
                 </ButtonGroup>

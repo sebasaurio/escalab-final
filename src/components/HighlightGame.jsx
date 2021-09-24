@@ -39,13 +39,13 @@ const HighlightGame = (props) => {
                 <CardActions className='hightlight-game-actions'>
                     {
                         !favorite ? (
-                            <Button size='small' color='primary' onClick={handleSetFavorite}>
-                                <Typography variant='inherit' className='action-text-button' > Add to favorite </Typography> <Favorite className='favorite-icon'/>
+                            <Button size='small' color='primary' onClick={handleSetFavorite} className='action-text-button'>
+                                <Typography variant='inherit'> Add to favorite </Typography> <Favorite className='favorite-icon'/>
                             </Button>
                         )
                         : (
-                            <Button size='small' color='primary' onClick={handleRemoveFavorite}>
-                                <Typography variant='inherit' className='action-text-button' > Remove from favorites </Typography> <HighlightOff className='remove-icon'/>
+                            <Button size='small' color='primary' onClick={handleRemoveFavorite} className='action-text-button'>
+                                <Typography variant='inherit'> Remove from favorites </Typography> <HighlightOff className='remove-icon'/>
                             </Button>
                         )
                     }

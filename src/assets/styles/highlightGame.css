@@ -1,6 +1,7 @@
 .hightlight-game{
     padding: 0 15px 0 15px;
     margin-top: 15px;
+    background-color: #fafafa !important;
 }
 
 .hightlight-game-actions{
@@ -16,7 +17,7 @@
 }
 
 .action-text-button:hover{
-    background-color: #b8d1db;
+    background-color: #b8d1db !important;
     border-radius: 15px;
     opacity: 1;
 }
