@@ -28,7 +28,7 @@ const PlatformsList = ({platforms, classes}) => (
 )
 
 PlatformsList.propTypes = {
-    platforms: PropTypes.object.isRequired,
+    platforms: PropTypes.array.isRequired,
     classes: PropTypes.object.isRequired
 }
 

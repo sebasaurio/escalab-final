@@ -1,0 +1,11 @@
+.genre-list{
+    margin-bottom: 10px;
+}
+
+.genre-item{
+    margin-right: 5px;
+}
+
+.genre-item:hover{
+    background-color: #b8d1db;
+}

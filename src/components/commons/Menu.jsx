@@ -96,7 +96,7 @@ const Menu = ({parentPlatforms}) => {
                     <List>
                         {
                             ["Top", "Platforms", "Favorites"].map((text) => (
-                                <Link key={text} to={text.toLowerCase()} className={classes.link} onClick={() => handleSetSection(text)}>
+                                <Link key={text} to={`/game/${text.toLowerCase()}`} className={classes.link} onClick={() => handleSetSection(text)}>
                                     <ListItem button className={`${classes.linkItem} ${text.toLowerCase() === sectionActive.toLowerCase() && classes.linkActive}`}>
                                         <ListItemText primary={text}/>
                                     </ListItem>

@@ -3,12 +3,14 @@ import PropTypes from 'prop-types'
 
 import {Chip} from '@material-ui/core'
 
+import '../assets/styles/genreList.css'
+
 const GenresList = ({genres}) => {
     return (
-        <div>
+        <div className='genre-list'>
             {
                 genres && genres.map(genre => (
-                    <Chip key={genre.id} label={genre.name} m={3}/>
+                    <Chip className='genre-item' key={genre.id} label={genre.name} m={3}/>
                 ))
             }
         </div>

@@ -14,7 +14,7 @@ export const useApiCall = (axiosParams) => {
 
     const fetchData = async (params) =>{
         try {
-            const result = DATA //await axios.request(params)
+            const result = await axios.request(params)
             setResponse(result)
         } catch (error) {
             setError(error)

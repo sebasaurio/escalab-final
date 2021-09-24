@@ -1,5 +1,5 @@
 import React from 'react'
-
+import {Link} from 'react-router-dom'
 import {Typography, Button} from '@material-ui/core'
 import CarrouselList from './commons/Carrousel/CarrouselList'
 
@@ -15,9 +15,11 @@ const GameDetail = ({game}) => {
                 <Typography variant='h5' className='name-header'>
                     {game.name}
                 </Typography>
-                <Button size='small' color='primary' variant='text' className='view-more'>
-                    <Typography variant='inherit'> View more </Typography>
-                </Button>
+                <Link to={`/game/${game.id}`}>
+                    <Button size='small' color='primary' variant='text' className='view-more'>
+                        <Typography variant='inherit'> View more </Typography>
+                    </Button>
+                </Link>
             </div>
 
             <div className='game-detail-info'>

@@ -14,7 +14,7 @@ const Footer = () => {
                     Made by Sebastian Cardoza D.
                 </Typography>
             </div>
-            <div container alignItems='center' className='footer-links'>
+            <div className='footer-links'>
                 <a href='https://www.linkedin.com/in/sebastian-cardoza-dominguez-02051492/' rel='noopener noreferrer' target='_blank' className='footer-link'>
                     Linkedin
                 </a>

@@ -1,0 +1,11 @@
+.platform-list{
+    margin-bottom: 10px;
+}
+
+.platform-item{
+    margin-right: 5px;
+}
+
+.platform-item:hover{
+    background-color: #b8d1db;
+}
