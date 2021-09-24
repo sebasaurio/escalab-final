@@ -15,8 +15,8 @@ const GameDetail = ({game}) => {
                 <Typography variant='h5' className='name-header'>
                     {game.name}
                 </Typography>
-                <Link to={`/game/${game.id}`}>
-                    <Button size='small' color='primary' variant='text' className='view-more'>
+                <Link to={`/game/${game.id}`} className='view-more'>
+                    <Button size='small' color='#1c1f1c' variant='text' >
                         <Typography variant='inherit'> View more </Typography>
                     </Button>
                 </Link>
@@ -24,14 +24,14 @@ const GameDetail = ({game}) => {
 
             <div className='game-detail-info'>
                 <CarrouselList images={game.short_screenshots}/>
-                <div className='game-description'>
+                <p className='game-detail-item'>
                     <span>Released on: </span> {game.released}
-                </div>
+                </p>
                 {
                     game.metacritic && (
-                        <div className='game-metacritic'>
-                            <span>{game.metacritic} points on metacritic</span>
-                        </div>
+                        <p className='game-detail-item'>
+                            <span className='game-metacritic'>{game.metacritic}</span>  <span> points on metacritic</span>
+                        </p>
                     )
                 }
                 <div className='game-tags'>

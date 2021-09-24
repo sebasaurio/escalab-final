@@ -9,3 +9,22 @@
     justify-content: flex-end;
     width: 100%;
 }
+
+.action-text-button{
+    color: #4a4a4a;
+    transition: 0.3s;
+}
+
+.action-text-button:hover{
+    background-color: #b8d1db;
+    border-radius: 15px;
+    opacity: 1;
+}
+
+.favorite-icon{
+    color: #8f2e0b;
+}
+
+.remove-icon{
+    color: #787878;
+}

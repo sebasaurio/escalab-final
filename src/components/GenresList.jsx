@@ -10,7 +10,7 @@ const GenresList = ({genres}) => {
         <div className='genre-list'>
             {
                 genres && genres.map(genre => (
-                    <Chip className='genre-item' key={genre.id} label={genre.name} m={3}/>
+                    <Chip className='genre-item' key={genre.id} label={genre.name} m={3} size="small"/>
                 ))
             }
         </div>

@@ -40,12 +40,12 @@ const HighlightGame = (props) => {
                     {
                         !favorite ? (
                             <Button size='small' color='primary' onClick={handleSetFavorite}>
-                                <Typography variant='inherit' className='action-text-button' > Add to favorite </Typography> <Favorite/>
+                                <Typography variant='inherit' className='action-text-button' > Add to favorite </Typography> <Favorite className='favorite-icon'/>
                             </Button>
                         )
                         : (
                             <Button size='small' color='primary' onClick={handleRemoveFavorite}>
-                                <Typography variant='inherit' className='action-text-button' > Remove from favorites </Typography> <HighlightOff/>
+                                <Typography variant='inherit' className='action-text-button' > Remove from favorites </Typography> <HighlightOff className='remove-icon'/>
                             </Button>
                         )
                     }

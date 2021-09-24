@@ -10,7 +10,7 @@ const PlatformList = ({platforms}) => {
         <div className='platform-list'>
             {
                 platforms && platforms.map((platform, index) => (
-                    <Chip className='platform-item' key={index} label={platform.platform.name}/>
+                    <Chip className='platform-item' key={index} label={platform.platform.name} size="small"/>
                 ))
             }
         </div>
