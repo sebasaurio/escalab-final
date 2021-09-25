@@ -1,11 +1,11 @@
 import React,{useEffect} from 'react'
 
-import {GET_PLATFORMS_LIST} from '../../constant/index'
-import {useApiCall} from '../../customHooks/useApiCall'
-import {PLATFORM_DATA} from '../../customHooks/temporalData'
+import {GET_PLATFORMS_LIST} from 'constant/index'
+import {useApiCall} from 'customHooks/useApiCall'
+import {PLATFORM_DATA} from 'customHooks/temporalData'
 
 import Menu from './Menu'
-import '../../assets/styles/layout.css'
+import 'assets/styles/layout.css'
 
 const Layout = ({children}) => {
     

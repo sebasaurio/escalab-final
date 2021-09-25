@@ -1,7 +1,7 @@
 import React from 'react'
 
-import PlatformsGames from '../components/PlatformsGames'
-import PlatformList from '../components/PlatformList'
+import PlatformsGames from 'components/PlatformsGames'
+import PlatformList from 'components/PlatformList'
 
 const GamesInPlatform = () => {
     return (

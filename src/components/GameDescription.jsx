@@ -6,7 +6,7 @@ import CarrouselList from './commons/Carrousel/CarrouselList'
 import GenresList from './GenresList'
 import PlatformList from './PlatformList'
 
-import '../assets/styles/gameDetail.css'
+import 'assets/styles/gameDetail.css'
 
 const GameDetail = ({game}) => {
     return (
