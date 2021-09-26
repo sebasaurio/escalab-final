@@ -8,7 +8,7 @@ import {Link} from 'react-router-dom'
 
 import logo from 'assets/static/images/logo.png'
 
-import PlatformsList from './PlatformsList'
+import PlatformsMenu from './PlatformsMenu'
 import Footer from './Footer'
 
 const drawerWidth = 240;
@@ -106,7 +106,7 @@ const Menu = ({parentPlatforms}) => {
                     </List>
                     <Divider light={true} className={classes.dividerColor}/>
                     {
-                        parentPlatforms?.length > 0 && <PlatformsList platforms={parentPlatforms} classes={classes}/>
+                        parentPlatforms?.length > 0 && <PlatformsMenu platforms={parentPlatforms} classes={classes}/>
                     }
                     <Footer/>
                 </div>

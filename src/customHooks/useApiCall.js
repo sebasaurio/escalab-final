@@ -26,7 +26,7 @@ export const useApiCall = (axiosParams) => {
 
     useEffect(() => {
         fetchData(axiosParams)
-    }, [])
+    },[])
 
     return {response, error, loading}
 }

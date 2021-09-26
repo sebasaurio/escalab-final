@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import {Link} from 'react-router-dom'
 import {List, ListSubheader, ListItem, ListItemText} from '@material-ui/core'
 
-const PlatformsList = ({platforms, classes}) => (
+const PlatformsMenu = ({platforms, classes}) => (
     <div>
         <List 
             component="nav"
@@ -27,9 +27,9 @@ const PlatformsList = ({platforms, classes}) => (
     </div>
 )
 
-PlatformsList.propTypes = {
+PlatformsMenu.propTypes = {
     platforms: PropTypes.array.isRequired,
     classes: PropTypes.object.isRequired
 }
 
-export default PlatformsList
+export default PlatformsMenu

@@ -1,12 +1,14 @@
-import React from 'react'
+import React,{lazy, Suspense} from 'react'
 import {Link} from 'react-router-dom'
 import {Typography, Button} from '@material-ui/core'
-import CarrouselList from './commons/Carrousel/CarrouselList'
 
 import GenresList from './GenresList'
 import PlatformList from './PlatformList'
+import Loading from './commons/Loading'
 
-import 'assets/styles/gameDetail.css'
+import 'assets/styles/gameDescription.css'
+
+const CarrouselList = lazy(() => import('./commons/Carrousel/CarrouselList'))
 
 const GameDetail = ({game}) => {
     return (
@@ -23,9 +25,11 @@ const GameDetail = ({game}) => {
             </div>
 
             <div className='game-detail-info'>
-                <div className='game-carrousel-container'>
-                    <CarrouselList images={game.short_screenshots}/>
-                </div>
+                    <div className='game-carrousel-container'>
+                    <Suspense fallback={<Loading/>}>
+                            <CarrouselList images={game.short_screenshots}/>
+                    </Suspense>
+                    </div>
                 <p className='game-detail-item'>
                     <span>Released on: </span> {game.released}
                 </p>
