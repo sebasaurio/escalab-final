@@ -1,0 +1,13 @@
+.not-found-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 20px;
+    justify-content: space-between;
+    padding: 20px 20px 20px 20px;
+    color: #ebebeb;
+}
+
+.not-found-image{
+    width: 100%;
+}

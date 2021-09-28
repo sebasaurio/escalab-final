@@ -8,6 +8,7 @@ import {useApiCall} from 'customHooks/useApiCall'
 import CarrouselList from './commons/Carrousel/CarrouselList'
 import GenresList from './GenresList'
 import PlatformList from './PlatformList'
+import ErrorBoundary from 'hoc/ErrorBoundary'
 
 
 import 'assets/styles/gameDetail.css'
@@ -19,9 +20,7 @@ const GameDetail = () => {
         method: 'GET',
         url: GET_GAME_BY_ID(id)
     })
-    console.log(response)
 
-    const {name} = response.data
 
     return (
        loading ? (
@@ -32,7 +31,7 @@ const GameDetail = () => {
                 <Grid item xs={8}>
                 </Grid>
                 <Grid item xs={4}>
-                    {name}
+                    {response.name}
                 </Grid> 
             </Grid>
         </Container>

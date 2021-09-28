@@ -20,7 +20,7 @@ const HighlightsGames = () => {
                         <CircularProgress color="primary" />
                     </Backdrop>
                 : (
-                    response?.data?.results.map(game => (
+                    response?.results.map(game => (
                         <HighlightGame game={game} key={game.id}/>
                     ))
                 )

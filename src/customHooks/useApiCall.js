@@ -3,8 +3,6 @@ import axios from 'axios'
 
 import {BASE_URL} from 'constant/index'
 
-import {DATA} from './temporalData'
-
 axios.defaults.baseURL = BASE_URL
 
 export const useApiCall = (axiosParams) => {
@@ -15,7 +13,7 @@ export const useApiCall = (axiosParams) => {
     const fetchData = async (params) =>{
         try {
             const result = await axios.request(params)
-            setResponse(result)
+            setResponse(result?.data)
         } catch (error) {
             setError(error)
         }

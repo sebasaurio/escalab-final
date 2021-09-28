@@ -1,16 +1,21 @@
 import React,{lazy, Suspense} from 'react'
 import {Link} from 'react-router-dom'
 import {Typography, Button} from '@material-ui/core'
+import {ArrowForward} from '@material-ui/icons'
 
 import GenresList from './GenresList'
 import PlatformList from './PlatformList'
 import Loading from './commons/Loading'
+
+import useHover from 'customHooks/useHover'
 
 import 'assets/styles/gameDescription.css'
 
 const CarrouselList = lazy(() => import('./commons/Carrousel/CarrouselList'))
 
 const GameDetail = ({game}) => {
+    const [hoverRef, isHovered] = useHover();
+
     return (
         <>
             <div className='game-detail-header'>
@@ -18,8 +23,9 @@ const GameDetail = ({game}) => {
                     {game.name}
                 </Typography>
                 <Link to={`/game/${game.id}`} className='view-more'>
-                    <Button size='small' color='#1c1f1c' variant='text' >
+                    <Button size='small' color='#1c1f1c' variant='text' ref={hoverRef} >
                         <Typography variant='inherit'> View more </Typography>
+                        {isHovered && <ArrowForward fontSize='small'/>}
                     </Button>
                 </Link>
             </div>

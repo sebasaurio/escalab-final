@@ -24,7 +24,6 @@ const FavoritesGames = () => {
     }
 
     const hasFavorites = favoriteGames.length > 0
-
     return (
         <div className='favorite-games-container'>
             {
