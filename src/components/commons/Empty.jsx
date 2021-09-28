@@ -16,7 +16,7 @@ const Empty = () => {
     return (
         <div className='empty'>
             <Typography className='empty-text' variant='h5'>
-                Your favorite games will appear here, go ahead and select one   
+                Your favorite games will appear here, go ahead and select one
             </Typography>
             <img src={emptyImage} alt='empty' className='empty-img'/>
             <div className='empty-action-buttons'>
@@ -24,11 +24,10 @@ const Empty = () => {
                     Go back
                 </Button>
 
-                <Link to='/'>
-                    <Button color='primary' variant='contained'>
-                        Top games
-                    </Button>
-                </Link>
+                <Button color='primary' variant='contained' component={Link} to='/'>
+                    Top games
+                </Button>
+                
             </div>
         </div>
     )

@@ -2,6 +2,7 @@ import React, {lazy, Suspense} from 'react'
 
 import {GET_PLATFORMS_LIST} from 'constant/index'
 import {useApiCall} from 'customHooks/useApiCall'
+
 import Loading from './Loading'
 import 'assets/styles/layout.css'
 

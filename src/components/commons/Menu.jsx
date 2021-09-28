@@ -89,7 +89,7 @@ const Menu = ({parentPlatforms}) => {
                     <Toolbar>
                         <img src={logo} alt="react games" width='32' height='32'/>
                         <Typography variant='h6' className={classes.pageName}>
-                            React Games 
+                            React Games
                         </Typography>
                     </Toolbar>
                     <Divider light={true} className={classes.dividerColor}/>

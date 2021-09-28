@@ -6,6 +6,10 @@ import {ClearAll, ViewHeadline, ViewAgenda} from '@material-ui/icons'
 
 import GameDetail from './GameDescription'
 import Empty from './commons/Empty'
+import RemindMe from './RemindMe'
+import ModalPortal from 'components/commons/ModalPortal'
+
+import { useModal } from 'customHooks/useModal'
 
 import 'assets/styles/favoriteGames.css'
 
@@ -22,6 +26,8 @@ const FavoritesGames = () => {
     const handleChangeViewStyle = (style) => {
         setViewStyle(style)
     }
+
+    const {modal, handleCloseModal, handleOpenModal} = useModal()
 
     const hasFavorites = favoriteGames.length > 0
     return (
@@ -42,25 +48,35 @@ const FavoritesGames = () => {
                 !hasFavorites
                 ? <Empty/>
                 : (
-                    viewStyle === 'Card'
-                    ? (
-                        favoriteGames.map(game => ( 
-                            <Card key={game.id} className='favorite-game'><GameDetail game={game}/> </Card> 
-                        ))
-                    )
-                    : (
-                        <Grid container spacing={1}>
-                            <List className='favorite-as-list'>
-                                {
-                                    favoriteGames.map(game => (
-                                        <ListItem key={game.id} className='favorite-game'>
-                                            <GameDetail game={game}/>
-                                        </ListItem>
-                                    ))
-                                }
-                            </List>
-                        </Grid>
-                    )
+                    <>
+                        <Button variant='contained' onClick={handleOpenModal} className='reminder-button'>
+                            Remind Me!
+                        </Button>
+                        {
+                            viewStyle === 'Card'
+                            ? (
+                                favoriteGames.map(game => ( 
+                                    <Card key={game.id} className='favorite-game'><GameDetail game={game}/> </Card> 
+                                ))
+                            )
+                            : (
+                                <Grid container spacing={1}>
+                                    <List className='favorite-as-list'>
+                                        {
+                                            favoriteGames.map(game => (
+                                                <ListItem key={game.id} className='favorite-game'>
+                                                    <GameDetail game={game}/>
+                                                </ListItem>
+                                            ))
+                                        }
+                                    </List>
+                                </Grid>
+                            )  
+                        }
+                        <ModalPortal isOpen={modal} onClose={handleCloseModal}>
+                            <RemindMe/>
+                        </ModalPortal>
+                    </>
                 )
             }
             </div>
