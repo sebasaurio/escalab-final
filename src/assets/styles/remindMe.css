@@ -1,0 +1,29 @@
+.form-container{
+
+}
+
+.form-remind{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    row-gap: 20px;
+}
+
+.options-images-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.options-images{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.reminder-actions{
+    display: flex;
+    flex-direction: row;
+    row-gap: 20px;
+    justify-content: space-between;
+}
