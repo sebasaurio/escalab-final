@@ -1,10 +1,12 @@
 import React,{useState} from 'react'
 import {useForm, Controller} from 'react-hook-form'
 
-import {TextField, Switch, FormLabel, FormGroup, FormHelperText, Snackbar, Button} from '@material-ui/core'
+import {TextField, Switch, FormHelperText, Button} from '@material-ui/core'
 import {KeyboardDatePicker  } from "@material-ui/pickers";
 import {MuiPickersUtilsProvider } from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
+
+import ErrorBoundary from 'hoc/ErrorBoundary';
 
 import 'assets/styles/remindMe.css'
 
@@ -16,65 +18,65 @@ const RemindMe = () => {
     const [dateNow, setDateNow] = useState(new Date())
 
     return (
-       
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
-            <div className='form-container'>
-                <form onSubmit={handleSubmit(onSubmit)} className='form-remind'>
+                <div className='form-container'>
+                    <form onSubmit={handleSubmit(onSubmit)} className='form-remind'>
 
-                    <Controller
-                        name='Name'
-                        control={control}
-                        rules={{ required: true, maxLength: 50 }}
-                        defaultValue=''
-                        render={({field}) => <TextField label='Name' type='name' {...field}/>}
-                    />
+                        <Controller
+                            name='Name'
+                            control={control}
+                            rules={{ required: true, maxLength: 50 }}
+                            defaultValue=''
+                            render={({field}) => <TextField label='Name' type='name' {...field}/>}
+                        />
 
-                    <Controller
-                        name='Email'
-                        control={control}
-                        rules={{ required: true }}
-                        defaultValue=''
-                        render={({field}) => <TextField label='Email' type='email' {...field}/>}
-                    />
-                    
+                        <Controller
+                            name='Email'
+                            control={control}
+                            rules={{ required: true }}
+                            defaultValue=''
+                            render={({field}) => <TextField label='Email' type='email' {...field}/>}
+                        />
+                        
 
-                    <Controller
-                        name='ReminderDate'
-                        as={KeyboardDatePicker}
-                        control={control}
-                        rules={{ required: true }}
-                        defaultValue={dateNow}
-                        render={({field}) => 
-                            <KeyboardDatePicker
-                                label='Reminder date'
-                                inputFormat='MM/dd/yyyy'
-                                format='MM/dd/yyyy'
-                                value={dateNow}
-                                onChange={setDateNow}
-                                minDate={new Date()}
-                                {...field}
-                            />}
-                    />
+                        <Controller
+                            name='ReminderDate'
+                            as={KeyboardDatePicker}
+                            control={control}
+                            rules={{ required: true }}
+                            defaultValue={dateNow}
+                            render={({field}) => 
+                                <KeyboardDatePicker
+                                    label='Reminder date'
+                                    inputFormat='MM/dd/yyyy'
+                                    format='MM/dd/yyyy'
+                                    value={dateNow}
+                                    onChange={setDateNow}
+                                    minDate={new Date()}
+                                    {...field}
+                                />}
+                        />
 
-                    <Controller
-                        name='SendImages'
-                        control={control}
-                        render={({field}) => (
-                                <>
-                                    <Switch defaultChecked color="primary" inputProps={{ 'no': 'yes' }} {...field}/>
-                                    <FormHelperText>Images must send to your mail.</FormHelperText>
-                                </>
-                            )
-                        }
-                    />
+                        <Controller
+                            name='SendImages'
+                            control={control}
+                            defaultValue='no'
+                            render={({field}) => (
+                                    <>
+                                        <Switch color="primary" inputProps={{ 'no': 'yes' }} {...field}/>
+                                        <FormHelperText>Images must send to your mail.</FormHelperText>
+                                    </>
+                                )
+                            }
+                        />
 
-                    <div className='reminder-actions'>
-                        <Button type='reset' variant='outlined' onClick={() => reset({ Name: "bill" }) } >Clear</Button>
-                        <Button type='submit' variant='contained' color="primary">Send reminder!</Button>
-                    </div>
-                </form>
-            </div>
-        </MuiPickersUtilsProvider>
+                        <div className='reminder-actions'>
+                            <Button type='reset' variant='outlined' onClick={() => reset({  }) } >Clear</Button>
+                            <Button type='submit' variant='contained' color="primary">Send reminder!</Button>
+                        </div>
+                    </form>
+                </div>
+            </MuiPickersUtilsProvider>
     )
 }
 
