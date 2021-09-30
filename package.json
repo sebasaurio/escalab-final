@@ -67,6 +67,18 @@
     "style-loader": "^3.3.0",
     "webpack": "^5.55.1",
     "webpack-cli": "^4.8.0",
-    "webpack-dev-server": "^4.3.0"
-  }
+    "webpack-dev-server": "^3.11.2"
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "webpack.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sebasaurio/escalab-final.git"
+  },
+  "author": "Sebastian Cardoza",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sebasaurio/escalab-final/issues"
+  },
+  "homepage": "https://github.com/sebasaurio/escalab-final#readme"
 }
