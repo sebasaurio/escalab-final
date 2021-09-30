@@ -3,8 +3,8 @@ import {Link} from 'react-router-dom'
 import {useHistory} from 'react-router-dom'
 import {Typography, Button} from '@material-ui/core'
 
-import emptyImage from 'assets/static/images/empty-crash.png'
-import 'assets/styles/empty.css'
+import emptyImage from '../../assets/static/images/empty-crash.png'
+import '../../assets/styles/empty.css'
 
 //setAction
 const Empty = () => {

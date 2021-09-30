@@ -9,6 +9,9 @@ import logger from 'redux-logger'
 
 import { reducer } from './reducers';
 
+import 'core-js/stable'
+import 'regenerator-runtime/runtime'
+
 import App from './routes/App';
 
 import '../src/assets/styles/main.css'

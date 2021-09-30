@@ -2,16 +2,16 @@ import React, {useEffect} from 'react'
 import {useParams} from 'react-router-dom'
 import {Container, Grid, Typography} from '@material-ui/core'
 
-import {GET_GAME_BY_ID} from 'constant/index'
-import {useApiCall} from 'customHooks/useApiCall'
+import {GET_GAME_BY_ID} from '../constant/index'
+import {useApiCall} from '../customHooks/useApiCall'
 
 import CarrouselList from './commons/Carrousel/CarrouselList'
 import GenresList from './GenresList'
 import PlatformList from './PlatformList'
-import ErrorBoundary from 'hoc/ErrorBoundary'
+import ErrorBoundary from '../hoc/ErrorBoundary'
 
 
-import 'assets/styles/gameDetail.css'
+import '../assets/styles/gameDetail.css'
 
 const GameDetail = () => {
     const {id} = useParams()

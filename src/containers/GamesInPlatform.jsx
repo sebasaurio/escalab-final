@@ -1,10 +1,10 @@
 import React, {useEffect} from 'react'
 import {Chip} from '@material-ui/core'
 
-import PlatformsGames from 'components/PlatformsGames'
-import PlatformList from 'components/PlatformList'
+import PlatformsGames from '../components/PlatformsGames'
+import PlatformList from '../components/PlatformList'
 
-import { useGetPlatforms } from 'customHooks/useGetPlatforms'
+import { useGetPlatforms } from '../customHooks/useGetPlatforms'
 
 const GamesInPlatform = () => {
 

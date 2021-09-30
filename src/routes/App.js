@@ -1,13 +1,13 @@
 import React, {lazy, Suspense} from 'react'
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 
-import Layout from 'components/commons/Layout'
-import NotFound from 'components/commons/NotFound'
+import Layout from '../components/commons/Layout'
+import NotFound from '../components/commons/NotFound'
 
-const TopGames = lazy(() => import('containers/TopGames'))
-const GamesInPlatform = lazy(() => import('containers/GamesInPlatform'))
-const FavoriteGames = lazy(() => import('containers/FavoriteGames'))
-const GameDetail = lazy(() => import('components/GameDetail'))
+const TopGames = lazy(() => import('../containers/TopGames'))
+const GamesInPlatform = lazy(() => import('../containers/GamesInPlatform'))
+const FavoriteGames = lazy(() => import('../containers/FavoriteGames'))
+const GameDetail = lazy(() => import('../components/GameDetail'))
 
 function App() {
   return (

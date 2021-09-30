@@ -1,12 +1,12 @@
 import React from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import {setPlatform, setSection} from 'actions/index'
+import {setPlatform, setSection} from '../../actions/index'
 import PropTypes from 'prop-types'
 
 import {Drawer, Toolbar, Typography, Divider, List, ListItem, ListItemText, makeStyles} from '@material-ui/core'
 import {Link} from 'react-router-dom'
 
-import logo from 'assets/static/images/logo.png'
+import logo from '../../assets/static/images/logo.png'
 
 import PlatformsMenu from './PlatformsMenu'
 import Footer from './Footer'

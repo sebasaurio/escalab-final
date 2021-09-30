@@ -1,7 +1,7 @@
 import React from 'react'
 import {Typography} from  '@material-ui/core' 
 
-import 'assets/styles/footer.css'
+import '../../assets/styles/footer.css'
 
 const Footer = () => {
     return (

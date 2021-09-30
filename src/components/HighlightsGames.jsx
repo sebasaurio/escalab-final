@@ -1,8 +1,8 @@
 import React from 'react'
 import {Backdrop, CircularProgress} from '@material-ui/core'
 
-import { HIGHEST_GAMES } from 'constant/index'
-import { useApiCall } from 'customHooks/useApiCall'
+import { HIGHEST_GAMES } from '../constant/index'
+import { useApiCall } from '../customHooks/useApiCall'
 
 import HighlightGame from './HighlightGame'
 

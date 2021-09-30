@@ -7,9 +7,9 @@ import GenresList from './GenresList'
 import PlatformList from './PlatformList'
 import Loading from './commons/Loading'
 
-import useHover from 'customHooks/useHover'
+import useHover from '../customHooks/useHover'
 
-import 'assets/styles/gameDescription.css'
+import '../assets/styles/gameDescription.css'
 
 const CarrouselList = lazy(() => import('./commons/Carrousel/CarrouselList'))
 
