@@ -3,11 +3,11 @@ import {CircularProgress} from '@material-ui/core'
 
 import 'assets/styles/loading.css'
 
-const Loading = () => {
+const Loading = ({text}) => {
     return (
         <div className='loading'>
             <CircularProgress color="inherit" />
-            <span className='loading-text'>We are loading images</span>
+            <span className='loading-text'>{}</span>
         </div>
     )
 }
