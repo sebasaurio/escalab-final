@@ -8,7 +8,7 @@ import { useGetPlatforms } from 'customHooks/useGetPlatforms'
 
 const GamesInPlatform = () => {
 
-    const {response, loading, getPlatforms} = useGetPlatforms()
+    const {platforms, loading, getPlatforms} = useGetPlatforms()
 
     useEffect(()=>{
         getPlatforms()
@@ -17,7 +17,7 @@ const GamesInPlatform = () => {
     return (
         <div>
             {
-                response?.results.map(platform => (
+                platforms?.results.map(platform => (
                     <Chip className='genre-item' key={platform.id} label={platform.name} m={3} size="small"/>
                 ))
             }
