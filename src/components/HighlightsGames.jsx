@@ -19,7 +19,7 @@ const HighlightsGames = () => {
           url: HIGHEST_GAMES(format(startOfActualMonth, "yyyy-MM-dd"), format(endOfActualMonth, "yyyy-MM-dd"), '+rating'),
     })
     return (
-        <div className='highlights-games-list'>
+        <div>
             {
                 loading 
                 ? <Backdrop className='backdrop' open={true} sx={{zIndex: (theme) => theme.zIndex.drawer + 1 }}/>

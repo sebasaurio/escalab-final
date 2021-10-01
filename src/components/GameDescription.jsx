@@ -13,17 +13,17 @@ import 'assets/styles/gameDescription.css'
 
 const CarrouselList = lazy(() => import('./commons/Carrousel/CarrouselList'))
 
-const GameDetail = ({game}) => {
+const GameDetail = ({name, id, short_screenshots, released, metacritic, genres, platforms}) => {
     const [hoverRef, isHovered] = useHover();
 
     return (
         <>
             <div className='game-detail-header'>
                 <Typography variant='h5' className='name-header'>
-                    {game.name}
+                    {name}
                 </Typography>
-                <Link to={`/game/${game.id}`} className='view-more'>
-                    <Button size='small' color='#1c1f1c' variant='text' ref={hoverRef} >
+                <Link to={`/game/${id}`} className='view-more'>
+                    <Button size='small' ref={hoverRef} >
                         <Typography variant='inherit'> View more </Typography>
                         {isHovered && <ArrowForward fontSize='small'/>}
                     </Button>
@@ -33,22 +33,25 @@ const GameDetail = ({game}) => {
             <div className='game-detail-info'>
                     <div className='game-carrousel-container'>
                     <Suspense fallback={<Loading/>}>
-                            <CarrouselList images={game.short_screenshots}/>
+                           
+                                <Loading />
+                            
+                            {/* <CarrouselList images={short_screenshots}/> */}
                     </Suspense>
                     </div>
                 <p className='game-detail-item'>
-                    <span>Released on: </span> {game.released}
+                    <span>Released on: </span> {released}
                 </p>
                 {
-                    game.metacritic && (
+                    metacritic && (
                         <p className='game-detail-item'>
-                            <span className='game-metacritic'>{game.metacritic}</span>  <span> points on metacritic</span>
+                            <span className='game-metacritic'>{metacritic}</span>  <span> points on metacritic</span>
                         </p>
                     )
                 }
                 <div className='game-tags'>
-                    <GenresList genres={game.genres}/>
-                    <PlatformList platforms={game.platforms}/>
+                    <GenresList genres={genres}/>
+                    <PlatformList platforms={platforms}/>
                 </div>
             </div>
         </>

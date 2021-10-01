@@ -1,4 +1,4 @@
-import React, {lazy, Suspense} from 'react'
+import React, {lazy} from 'react'
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 
 import Layout from 'components/commons/Layout'
@@ -13,16 +13,14 @@ function App() {
   return (
     <BrowserRouter>
       <Layout>
-         <Suspense fallback={<span>Cargando</span>}>
           <Switch>
-              <Route exact path='/' />
+              <Route exact path='/' render={() => <TopGames/>}/>
               <Route exact path='/game/top' render={() => <TopGames/>}/>
               <Route exact path='/game/platforms' render={() => <GamesInPlatform/>}/>
               <Route exact path='/game/favorites' render={() => <FavoriteGames/>}/>
               <Route path='/game/:id' render={() => <GameDetail/>}/>
-              <Route component={NotFound}/>
+              <Route render={() => <NotFound/>}/>
             </Switch>
-         </Suspense>
       </Layout>
     </BrowserRouter>
   );

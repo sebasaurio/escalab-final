@@ -4,7 +4,7 @@ import {setFavorite, deleteFavorite} from 'actions/index'
 import {Card, CardActions, Typography, Button} from '@material-ui/core'
 import {Favorite, HighlightOff} from '@material-ui/icons'
 
-import GameDetail from './GameDescription'
+import GameDescription from './GameDescription'
 
 import 'assets/styles/highlightGame.css'
 
@@ -34,7 +34,15 @@ const HighlightGame = (props) => {
 
     return (
         <Card className='hightlight-game'>
-            <GameDetail game={game}/>
+            <GameDescription 
+                name={game.name} 
+                id={game.id} 
+                short_screenshots={game.short_screenshots} 
+                released={game.released} 
+                metacritic={game.metacritic} 
+                genres={game.genres} 
+                platforms={game.platforms}
+            />
             <div>
                 <CardActions className='hightlight-game-actions'>
                     {
