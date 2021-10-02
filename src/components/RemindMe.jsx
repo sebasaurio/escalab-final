@@ -6,8 +6,6 @@ import {KeyboardDatePicker  } from "@material-ui/pickers";
 import {MuiPickersUtilsProvider } from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
 
-import ErrorBoundary from 'hoc/ErrorBoundary';
-
 import 'assets/styles/remindMe.css'
 
 const RemindMe = () => {
@@ -63,7 +61,7 @@ const RemindMe = () => {
                             defaultValue='no'
                             render={({field}) => (
                                     <>
-                                        <Switch color="primary" inputProps={{ 'no': 'yes' }} {...field}/>
+                                        <Switch color="primary" inputProps={{ 'no': 'yes' }} {...field} inputRef={field.ref}/>
                                         <FormHelperText>Images must send to your mail.</FormHelperText>
                                     </>
                                 )

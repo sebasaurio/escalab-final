@@ -1,12 +1,6 @@
 import React from 'react'
-
 import FavoritesGames from 'components/FavoritesGames'
 
-const FavoriteGames = () => (
-    <div>
-        <FavoritesGames/>
-    </div>
-)
-
+const FavoriteGames = () => <FavoritesGames/>
 
 export default FavoriteGames

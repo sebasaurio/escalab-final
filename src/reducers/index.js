@@ -5,7 +5,7 @@ export const reducer = (state, action) => {
                 ...state,
                 sectionActive: action.payload
             }
-        case '':
+        case 'SET_PLATFORM':
             return {
                 ...state,
                 platformActive: action.payload

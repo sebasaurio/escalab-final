@@ -56,7 +56,15 @@ const FavoritesGames = () => {
                             viewStyle === 'Card'
                             ? (
                                 favoriteGames.map(game => ( 
-                                    <Card key={game.id} className='favorite-game'><GameDetail game={game}/> </Card> 
+                                    <Card key={game.id} className='favorite-game'>
+                                        <GameDetail name={game.name} 
+                                        id={game.id} 
+                                        short_screenshots={game.short_screenshots} 
+                                        released={game.released} 
+                                        metacritic={game.metacritic} 
+                                        genres={game.genres} 
+                                        platforms={game.platforms}/> 
+                                    </Card> 
                                 ))
                             )
                             : (
@@ -65,7 +73,14 @@ const FavoritesGames = () => {
                                         {
                                             favoriteGames.map(game => (
                                                 <ListItem key={game.id} className='favorite-game'>
-                                                    <GameDetail game={game}/>
+                                                    <GameDetail 
+                                                    name={game.name} 
+                                                    id={game.id} 
+                                                    short_screenshots={game.short_screenshots} 
+                                                    released={game.released} 
+                                                    metacritic={game.metacritic} 
+                                                    genres={game.genres} 
+                                                    platforms={game.platforms}/>
                                                 </ListItem>
                                             ))
                                         }

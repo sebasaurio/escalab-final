@@ -33,10 +33,7 @@ const GameDetail = ({name, id, short_screenshots, released, metacritic, genres, 
             <div className='game-detail-info'>
                     <div className='game-carrousel-container'>
                     <Suspense fallback={<Loading/>}>
-                           
-                                <Loading />
-                            
-                            {/* <CarrouselList images={short_screenshots}/> */}
+                            {<CarrouselList images={short_screenshots}/>}
                     </Suspense>
                     </div>
                 <p className='game-detail-item'>

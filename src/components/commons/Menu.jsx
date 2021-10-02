@@ -8,7 +8,6 @@ import {Link} from 'react-router-dom'
 
 import logo from 'assets/static/images/logo.png'
 
-import PlatformsMenu from './PlatformsMenu'
 import Footer from './Footer'
 
 const drawerWidth = 240;
@@ -60,19 +59,13 @@ const useStyles = makeStyles((theme) => ({
     }
 }))
 
-const Menu = ({parentPlatforms}) => {
+const Menu = () => {
     const classes = useStyles()
-
     const sectionActive = useSelector((state) => state.sectionActive)
-    const platformActive = useSelector((state) => state.platformActive)
     const dispatch = useDispatch()
 
     const handleSetSection = (section) => {
         dispatch(setSection(section))
-    }
-
-    const handleSetPlatform = (platform) => {
-        dispatch(setPlatform(platform))
     }
 
     return (
@@ -105,18 +98,11 @@ const Menu = ({parentPlatforms}) => {
                         }
                     </List>
                     <Divider light={true} className={classes.dividerColor}/>
-                    {
-                        parentPlatforms?.length > 0 && <PlatformsMenu platforms={parentPlatforms} classes={classes}/>
-                    }
                     <Footer/>
                 </div>
             </Drawer>
         </div>
     )
-}
-
-Menu.propTypes = {
-    parentPlatforms: PropTypes.array.isRequired
 }
 
 export default Menu
