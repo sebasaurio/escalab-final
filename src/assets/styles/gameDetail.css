@@ -1,4 +1,24 @@
 .game-detail-container{
     background-color: #ededed !important;
     width: 100%;
+    padding-bottom: 30px;
+    padding-top: 15px;
+}
+
+.game-detail-title{
+    margin-bottom: 10px;
+}
+
+.game-detail-lists-tag{
+    margin-top: 15px;
+}
+
+.game-detail-description{
+    margin-top: 15px;
+}
+
+.game-website-link{
+    color: #212121;
+    text-decoration: none;
+    text-align: right;
 }

@@ -5,17 +5,16 @@ import {Chip} from '@material-ui/core'
 
 import 'assets/styles/platformList.css'
 
-const PlatformList = ({platforms}) => {
-    return (
-        <div className='platform-list'>
-            {
-                platforms && platforms.map((platform, index) => (
-                    <Chip className='platform-item' key={index} label={platform.platform.name} size="small"/>
-                ))
-            }
-        </div>
-    )
-}
+const PlatformList = ({platforms, handleOnClick}) => (
+    <div className='platform-list'>
+        {
+            platforms && platforms.map((platform) => (
+                <Chip className='platform-item' key={platform.platform.id} label={platform.platform.name} size="small" onClick={ handleOnClick && handleOnClick(platform.id)}/>
+            ))
+        }
+    </div>
+)
+
 
 PlatformList.propTypes = {
     platforms: PropTypes.array.isRequired

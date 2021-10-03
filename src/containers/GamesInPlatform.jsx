@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import {Chip} from '@material-ui/core'
 
 import PlatformsGames from 'components/PlatformsGames'
@@ -8,19 +8,20 @@ import { useGetPlatforms } from 'customHooks/useGetPlatforms'
 
 const GamesInPlatform = () => {
 
-    const {platforms, loading, getPlatforms} = useGetPlatforms()
+    const {platforms, getPlatforms} = useGetPlatforms()
+
+    const handleSetPlatform = (id) => {
+        console.log(id)
+    }
 
     useEffect(()=>{
         getPlatforms()
+        console.log(platforms)
     },[])
 
     return (
         <div>
-            {
-                platforms?.results.map(platform => (
-                    <Chip className='genre-item' key={platform.id} label={platform.name} m={3} size="small"/>
-                ))
-            }
+           {/* <PlatformList platforms={platforms.results} handleOnClick={handleSetPlatform}/> */}
         </div>
     )
 }
