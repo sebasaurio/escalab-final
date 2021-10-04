@@ -5,6 +5,11 @@ export const reducer = (state, action) => {
                 ...state,
                 sectionActive: action.payload
             }
+        case 'CLEAR_SECTION':
+            return {
+                ...state,
+                sectionActive: ''
+            }
         case 'SET_PLATFORM':
             return {
                 ...state,

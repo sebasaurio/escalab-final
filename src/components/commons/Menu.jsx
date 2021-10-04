@@ -1,7 +1,6 @@
 import React from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import {setPlatform, setSection} from 'actions/index'
-import PropTypes from 'prop-types'
+import {setSection} from 'actions/index'
 
 import {Drawer, Toolbar, Typography, Divider, List, ListItem, ListItemText, makeStyles} from '@material-ui/core'
 import {Link} from 'react-router-dom'

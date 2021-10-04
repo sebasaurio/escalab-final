@@ -1,4 +1,5 @@
 import React,{lazy, Suspense} from 'react'
+import PropTypes from 'prop-types'
 import {Link} from 'react-router-dom'
 import {Typography, Button} from '@material-ui/core'
 import {ArrowForward} from '@material-ui/icons'
@@ -53,6 +54,17 @@ const GameDetail = ({name, id, short_screenshots, released, metacritic, genres, 
             </div>
         </>
     )
+}
+
+GameDetail.propTypes = {
+    name: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+    short_screenshots: PropTypes.array,
+    released: PropTypes.string,
+    metacritic: PropTypes.number,
+    genres: PropTypes.array.isRequired,
+    platforms: PropTypes.array.isRequired
+
 }
 
 export default GameDetail

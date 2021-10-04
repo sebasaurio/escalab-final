@@ -3,6 +3,11 @@
     payload
  })
 
+ export const clearSection = (payload) =>({
+     type: 'CLEAR_SECTION',
+     payload
+ })
+
  export const setPlatform = (payload) => ({
      type: 'SET_PLATFORM',
      payload

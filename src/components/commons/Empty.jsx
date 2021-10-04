@@ -6,7 +6,6 @@ import {Typography, Button} from '@material-ui/core'
 import emptyImage from 'assets/static/images/empty-crash.png'
 import 'assets/styles/empty.css'
 
-//setAction
 const Empty = () => {
 
     const history = useHistory();

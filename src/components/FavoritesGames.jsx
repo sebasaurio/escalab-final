@@ -1,6 +1,6 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import {useSelector,useDispatch} from 'react-redux'
-import {clearFavorites} from 'actions/index'
+import {clearFavorites, clearSection} from 'actions/index'
 import {Button, ButtonGroup, Card, List, ListItem, Grid} from '@material-ui/core'
 import {ClearAll, ViewHeadline, ViewAgenda} from '@material-ui/icons'
 
@@ -21,6 +21,10 @@ const FavoritesGames = () => {
         dispatch(clearFavorites())
     }
 
+    const handleClearSection = () => {
+        dispatch(clearSection())
+    }
+
     const [viewStyle, setViewStyle] = useState('Card')
 
     const handleChangeViewStyle = (style) => {
@@ -30,6 +34,14 @@ const FavoritesGames = () => {
     const {modal, handleCloseModal, handleOpenModal} = useModal()
 
     const hasFavorites = favoriteGames.length > 0
+
+    useEffect(() => {
+        //https://usehooks.com/usePrevious/
+        if(!hasFavorites){
+            handleClearSection()
+        }
+    },[])
+
     return (
         <div className='favorite-games-container'>
             {
@@ -37,8 +49,8 @@ const FavoritesGames = () => {
                     <div className='favorite-games-options'>
                         <Button variant='contained' startIcon={ <ClearAll/>} className='clear-all' onClick={handleClearFavorites}/>
                         <ButtonGroup variant='contained' className='style-buttons'>
-                            <Button startIcon={ <ViewHeadline/>} onClick={() => handleChangeViewStyle('List')} className={`${viewStyle === 'List' && 'button-style-active'}`}/>
                             <Button startIcon={ <ViewAgenda/>} onClick={() => handleChangeViewStyle('Card')} className={`${viewStyle === 'Card' && 'button-style-active'}`}/>
+                            <Button startIcon={ <ViewHeadline/>} onClick={() => handleChangeViewStyle('List')} className={`${viewStyle === 'List' && 'button-style-active'}`}/>
                         </ButtonGroup>
                     </div>
                 )
