@@ -13,11 +13,6 @@ body{
     width: 100%;
 }
 
-.carrousel-image-source{
-    width: 100%;
-    height: auto;
-}
-
 @media (min-width: 576px) { 
     
 }
@@ -32,5 +27,4 @@ body{
 
 @media (min-width: 1200px) { 
 
-    
 }

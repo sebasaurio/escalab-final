@@ -1,5 +1,5 @@
 import React, {lazy} from 'react'
-import {BrowserRouter, Switch, Route} from 'react-router-dom'
+import {BrowserRouter, Switch, Route, Redirect} from 'react-router-dom'
 
 import Layout from 'components/commons/Layout'
 import NotFound from 'components/commons/NotFound'
@@ -19,7 +19,9 @@ function App() {
               <Route exact path='/game/platforms' render={() => <GamesInPlatform/>}/>
               <Route exact path='/game/favorites' render={() => <FavoriteGames/>}/>
               <Route path='/game/:id' render={() => <GameDetail/>}/>
-              <Route render={() => <NotFound/>}/>
+
+              <Route path="/404" component={NotFound} />
+              <Redirect to="/404" />
             </Switch>
       </Layout>
     </BrowserRouter>

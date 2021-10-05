@@ -1,4 +1,5 @@
 import React from 'react'
+
 import Carrousel from 'react-material-ui-carousel'
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
@@ -16,7 +17,7 @@ const CarrouselList = ({images}) => {
             animation='slide'
         >
             {
-                images.map((image, index) => <CarrouselItem key={index} item={image} className='carrousel-image'/>)
+                images.map((image) => <CarrouselItem key={image.id} src={image.image} className='carrousel-image'/>)
             }
         </Carrousel>
     )
