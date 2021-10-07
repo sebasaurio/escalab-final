@@ -10,5 +10,12 @@ export const GET_PLATFORMS_LIST = `platforms/lists/parents?${KEY_PARAMETER}`
 
 export const HIGHEST_GAMES = (startDate, endDate, ordering) => `games?${KEY_PARAMETER}&dates=${startDate},${endDate}&ordering=${ordering}`
 export const GET_GAME_BY_ID = id => `games/${id}?${KEY_PARAMETER}`
+export const GET_GAMES_BY_PLATFORM_ID = id => `games?platforms=${id}&${KEY_PARAMETER}`
 
 export const GET_SCREENSHOTS_BY_GAME_ID = id => `games/${id}/screenshots?${KEY_PARAMETER}`
+
+export const FILTER_PLATFORMS_NAMES = [
+    'pc',
+    'playstation',
+    'xbox'
+]

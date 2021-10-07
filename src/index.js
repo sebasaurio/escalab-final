@@ -15,10 +15,10 @@ import '../src/assets/styles/main.css'
 
 //init state
 const initialState = {
+  games: [],
   favoriteGames : [],
   sectionActive : 'Top',
-  platformActive : '',
-  userLogging : {}
+  platformActive : ''
 }
 
 //apply middlewares

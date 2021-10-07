@@ -15,6 +15,11 @@ export const reducer = (state, action) => {
                 ...state,
                 platformActive: action.payload
             }
+        case 'SET_GAMES':
+            return{
+                ...state,
+                games: action.payload
+            }
         case 'SET_FAVORITE':
             return {
                 ...state,

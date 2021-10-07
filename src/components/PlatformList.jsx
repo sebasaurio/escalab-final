@@ -9,7 +9,7 @@ const PlatformList = ({platforms, handleOnClick}) => (
     <div className='platform-list'>
         {
             platforms && platforms.map((platform) => (
-                <Chip className='platform-item' key={platform.platform.id} label={platform.platform.name} size="small" onClick={ handleOnClick && handleOnClick(platform.id)}/>
+                <Chip className='platform-item' key={platform.id} label={platform.name} size="small" onClick={() => handleOnClick && handleOnClick(platform.id)}/>
             ))
         }
     </div>

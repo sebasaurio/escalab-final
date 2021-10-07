@@ -13,6 +13,11 @@
      payload
  })
 
+ export const setGames = (payload) => ({
+     type: 'SET_GAMES',
+     payload
+ })
+
  export const setFavorite = (payload) => ({
      type: 'SET_FAVORITE',
      payload

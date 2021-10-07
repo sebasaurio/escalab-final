@@ -30,7 +30,7 @@ const HighlightGame = (props) => {
 
     useEffect(() => {
         IsAlreadyFavorite()
-    })
+    },[])
 
     return (
         <Card className='hightlight-game'>
@@ -41,7 +41,7 @@ const HighlightGame = (props) => {
                 released={game.released} 
                 metacritic={game.metacritic} 
                 genres={game.genres} 
-                platforms={game.platforms}
+                platforms={game.platforms.flatMap(inner => inner.platform)}
             />
             <div>
                 <CardActions className='hightlight-game-actions'>
