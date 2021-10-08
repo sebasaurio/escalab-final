@@ -22,3 +22,14 @@
     text-decoration: none;
     text-align: right;
 }
+
+.game-website-link:hover{
+    background-color: #4a99b5;
+    bort
+}
+
+.game-carrousel-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
