@@ -1,6 +1,6 @@
 import React from 'react'
-import {Backdrop} from '@material-ui/core'
-import {format, startOfMonth, endOfMonth} from 'date-fns'
+import {Backdrop,Grid} from '@material-ui/core'
+import {format,startOfMonth,endOfMonth} from 'date-fns'
 
 import {HIGHEST_GAMES} from 'constant/index'
 import {useApiCall} from 'customHooks/useApiCall'
@@ -25,11 +25,16 @@ const HighlightsGames = () => {
                 ? <Backdrop className='backdrop' open={true} sx={{zIndex: (theme) => theme.zIndex.drawer + 1 }}/>
                 : 
                     <ErrorBoundary>
-                        {
-                            response?.results.map(game => (
-                                <HighlightGame game={game} key={game.id}/>
-                            ))
-                        }
+                        <Grid container 
+                        direction="row"
+                        justifyContent="center"
+                        alignItems="center">
+                            {
+                              response?.results.map(game => (
+                                    <HighlightGame game={game} key={game.id}/>
+                                ))  
+                            }
+                        </Grid>
                     </ErrorBoundary>
             }
         </div>

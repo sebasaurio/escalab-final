@@ -1,7 +1,7 @@
 import React,{useState, useEffect} from 'react'
 import {connect} from 'react-redux'
 import {setFavorite, deleteFavorite} from 'actions/index'
-import {Card, CardActions, Typography, Button} from '@material-ui/core'
+import {Card, CardActions, Typography, Button, Container} from '@material-ui/core'
 import {Favorite, HighlightOff} from '@material-ui/icons'
 
 import GameDescription from './GameDescription'
@@ -11,7 +11,7 @@ import 'assets/styles/highlightGame.css'
 const HighlightGame = (props) => {
     const {game, favoriteGames} = props
 
-    const [favorite, setFavorite] = useState(null)
+    const [favorite, setFavorite] = useState(false)
 
     const handleSetFavorite = () => {
         props.setFavorite(game)
@@ -33,17 +33,17 @@ const HighlightGame = (props) => {
     },[])
 
     return (
-        <Card className='hightlight-game'>
-            <GameDescription 
-                name={game.name} 
-                id={game.id} 
-                short_screenshots={game.short_screenshots} 
-                released={game.released} 
-                metacritic={game.metacritic} 
-                genres={game.genres} 
-                platforms={game.platforms.flatMap(inner => inner.platform)}
-            />
-            <div>
+        <Container fixed>
+            <Card className='hightlight-game'>
+                <GameDescription 
+                    name={game.name} 
+                    id={game.id} 
+                    short_screenshots={game.short_screenshots} 
+                    released={game.released} 
+                    metacritic={game.metacritic} 
+                    genres={game.genres} 
+                    platforms={game.platforms.flatMap(inner => inner.platform)}
+                />
                 <CardActions className='hightlight-game-actions'>
                     {
                         !favorite ? (
@@ -58,12 +58,12 @@ const HighlightGame = (props) => {
                         )
                     }
                 </CardActions>
-            </div>
-            
-        </Card>
+            </Card>
+        </Container>
     )
 }
 
+//usando la function que conecta el componente a redux store
 const mapStateToProps = (state) => {
     return {
         favoriteGames : state.favoriteGames

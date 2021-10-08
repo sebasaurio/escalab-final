@@ -1,5 +1,6 @@
 import React, {useEffect, lazy, Suspense, useState} from 'react'
 import {useParams} from 'react-router-dom'
+import parse from 'html-react-parser';
 import {Container, Grid, Typography} from '@material-ui/core'
 
 import {GET_GAME_BY_ID, GET_SCREENSHOTS_BY_GAME_ID} from 'constant/index'
@@ -14,7 +15,6 @@ import Loading from './commons/Loading'
 import 'assets/styles/gameDetail.css'
 
 const CarrouselList = lazy(() => import('./commons/Carrousel/CarrouselList'))
-
 
 const GameDetail = () => {
     const {id} = useParams()
@@ -44,15 +44,13 @@ const GameDetail = () => {
                         </Typography>
                 </Grid>
 
-                <Grid>
+                <Grid className='game-carrousel-container'>
                     <CarrouselList images={gameScreenshots.results}/>
                 </Grid>
 
                 <Grid className='game-detail-description'>
                     <Typography variant='body1'>
-                        {
-                            game.description
-                        }
+                        {parse(game.description)}
                     </Typography>
                 </Grid>
 

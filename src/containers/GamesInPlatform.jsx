@@ -1,6 +1,6 @@
-import React, {useEffect, useState, useCallback} from 'react'
+import React, {useEffect, useState} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import {setGames} from 'actions/index'
+import {setGames, setPlatform} from 'actions/index'
 
 import PlatformsGames from 'components/PlatformsGames'
 import PlatformList from 'components/PlatformList'
@@ -17,16 +17,18 @@ const GamesInPlatform = () => {
     const [platformId, setPlatformId] = useState(undefined)
 
     const games = useSelector((state) => state.games)
+    const platformActive = useSelector((state) => state.platformActive)
+    
     const dispatch = useDispatch()
 
     const handleSetPlatform = (id) => {
         setPlatformId(id)
+        dispatch(setPlatform(id))
     }
 
     const getGames = async (id) => {
         try{
             const result = await axios.get(GET_GAMES_BY_PLATFORM_ID(id))
-            console.log(result.data.results)
             dispatch(setGames(result.data.results))
         }catch(error){
             console.log(error)
@@ -47,6 +49,7 @@ const GamesInPlatform = () => {
            {
                <PlatformList
                 platforms={platforms.results.filter(mainPlatform => FILTER_PLATFORMS_NAMES.includes(mainPlatform.name.toLowerCase())).flatMap(platforms => platforms.platforms)} 
+                platformActive={platformActive}
                 handleOnClick={handleSetPlatform}
                 />
            }

@@ -1,7 +1,7 @@
 import React,{lazy, Suspense} from 'react'
 import PropTypes from 'prop-types'
 import {Link} from 'react-router-dom'
-import {Typography, Button} from '@material-ui/core'
+import {Typography, Button, Grid} from '@material-ui/core'
 import {ArrowForward} from '@material-ui/icons'
 
 import GenresList from './GenresList'
@@ -31,20 +31,21 @@ const GameDetail = ({name, id, short_screenshots, released, metacritic, genres, 
                 </Link>
             </div>
 
+            <Grid className='game-carrousel-container'>
+                <Suspense fallback={<Loading/>}>
+                    {<CarrouselList images={short_screenshots}/>}
+                </Suspense>
+            </Grid>
+
             <div className='game-detail-info'>
-                    <div className='game-carrousel-container'>
-                    <Suspense fallback={<Loading/>}>
-                            {<CarrouselList images={short_screenshots}/>}
-                    </Suspense>
-                    </div>
-                <p className='game-detail-item'>
-                    <span>Released on: </span> {released}
-                </p>
+                <Typography variant='body1' className='game-detail-item'>
+                    Released on: {released}
+                </Typography>
                 {
                     metacritic && (
-                        <p className='game-detail-item'>
-                            <span className='game-metacritic'>{metacritic}</span>  <span> points on metacritic</span>
-                        </p>
+                        <Typography variant='body1' className='game-detail-item'>
+                            <span className='game-metacritic'>{metacritic}</span> points on metacritic
+                        </Typography>
                     )
                 }
                 <div className='game-tags'>

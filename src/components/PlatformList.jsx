@@ -5,11 +5,17 @@ import {Chip} from '@material-ui/core'
 
 import 'assets/styles/platformList.css'
 
-const PlatformList = ({platforms, handleOnClick}) => (
+const PlatformList = ({platforms, handleOnClick, platformActive}) => (
     <div className='platform-list'>
         {
             platforms && platforms.map((platform) => (
-                <Chip className='platform-item' key={platform.id} label={platform.name} size="small" onClick={() => handleOnClick && handleOnClick(platform.id)}/>
+                <Chip 
+                    className={`platform-item ${platformActive === platform.id && 'platform-active'}`} 
+                    key={platform.id} 
+                    label={platform.name} 
+                    size="small" 
+                    onClick={() => handleOnClick && handleOnClick(platform.id)}
+                    />
             ))
         }
     </div>
@@ -18,7 +24,8 @@ const PlatformList = ({platforms, handleOnClick}) => (
 
 PlatformList.propTypes = {
     platforms: PropTypes.array.isRequired,
-    handleOnClick: PropTypes.func
+    handleOnClick: PropTypes.func,
+    platformActive: PropTypes.number
 }
 
 export default PlatformList
