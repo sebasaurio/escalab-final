@@ -38,6 +38,7 @@ const CarrouselItem = ({src}) => {
         const image = new Image();
         image.onload = () => setIsLoaded(true);
         image.src = src
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
   
     return(

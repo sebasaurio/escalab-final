@@ -1,10 +1,10 @@
-import React, {useEffect, lazy, Suspense, useState} from 'react'
+import React, {useEffect, lazy, Suspense} from 'react'
 import {useParams} from 'react-router-dom'
 import parse from 'html-react-parser';
 import {Container, Grid, Typography} from '@material-ui/core'
 
 import {GET_GAME_BY_ID, GET_SCREENSHOTS_BY_GAME_ID} from 'constant/index'
-import {useApiCallExtensible, useApiCall} from 'customHooks/useApiCall'
+import {useApiCallExtensible} from 'customHooks/useApiCall'
 
 import GenresList from './GenresList'
 import PlatformList from './PlatformList'
@@ -19,15 +19,21 @@ const CarrouselList = lazy(() => import('./commons/Carrousel/CarrouselList'))
 const GameDetail = () => {
     const {id} = useParams()
 
-    const {response: game, loading: loadingGame, fetchData: fetchGame} = useApiCall({
-        method: 'GET',
-        url: GET_GAME_BY_ID(id)
-    })
+    const {response: game, loading: loadingGame, fetchData: fetchGame} = useApiCallExtensible()
+    const {response : gameScreenshots, fetchData: fetchScreenshots} = useApiCallExtensible()
 
-    const {response : gameScreenshots, fetchData: fetchScreenshots} = useApiCall({
-        method: 'GET',
-        url: GET_SCREENSHOTS_BY_GAME_ID(id)
-    })
+    useEffect(() => {
+        fetchGame({
+            method: 'GET',
+            url: GET_GAME_BY_ID(id)
+        })
+
+        fetchScreenshots({
+            method: 'GET',
+            url: GET_SCREENSHOTS_BY_GAME_ID(id)
+        })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[])
 
     return (
         loadingGame ? (
@@ -43,11 +49,13 @@ const GameDetail = () => {
                             {game.name}
                         </Typography>
                 </Grid>
-
-                <Grid className='game-carrousel-container'>
-                    <CarrouselList images={gameScreenshots.results}/>
-                </Grid>
-
+               
+                <Suspense fallback={<Loading/>}>
+                    <Grid className='game-carrousel-container'>
+                        <CarrouselList images={gameScreenshots.results}/>
+                    </Grid>
+                </Suspense>
+            
                 <Grid className='game-detail-description'>
                     <Typography variant='body1'>
                         {parse(game.description)}

@@ -6,8 +6,7 @@ import PlatformsGames from 'components/PlatformsGames'
 import PlatformList from 'components/PlatformList'
 
 import { useGetPlatforms } from 'customHooks/useGetPlatforms'
-import {FILTER_PLATFORMS_NAMES, GET_GAMES_BY_PLATFORM_ID} from 'constant/index'
-import { useApiCall, useApiCallExtensibe } from 'customHooks/useApiCall'
+import { FILTER_PLATFORMS_NAMES, GET_GAMES_BY_PLATFORM_ID} from 'constant/index'
 import axios from 'axios'
 
 import Loading from 'components/commons/Loading'
@@ -37,10 +36,12 @@ const GamesInPlatform = () => {
 
     useEffect(()=> {
         getPlatforms()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
     useEffect(() => {
         getGames(platformId)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [platformId])
 
 

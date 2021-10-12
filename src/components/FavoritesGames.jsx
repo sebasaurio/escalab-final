@@ -40,6 +40,7 @@ const FavoritesGames = () => {
         if(!hasFavorites){
             handleClearSection()
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
     return (

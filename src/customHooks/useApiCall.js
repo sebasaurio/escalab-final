@@ -24,12 +24,13 @@ export const useApiCall = (axiosParams) => {
 
     useEffect(() => {
         fetchData(axiosParams)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
     return {response, error, loading}
 }
 
-export const useApiCallExtensibe = (axiosParams) => {
+export const useApiCallExtensible = () => {
     const [response, setResponse]  = useState(undefined)
     const [error,setError] = useState('')
     const [loading, setLoading] = useState(true)
