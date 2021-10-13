@@ -25,9 +25,9 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "webpack --mode=development",
     "build": "webpack --mode=production",
-    "dev-server": "webpack serve",
+    "dev-server": "webpack server",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -68,7 +68,7 @@
     "style-loader": "^3.3.0",
     "webpack": "^5.58.1",
     "webpack-cli": "^4.9.0",
-    "webpack-dev-server": "^4.3.1"
+    "webpack-dev-server": "^3.11.2"
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "repository": {
