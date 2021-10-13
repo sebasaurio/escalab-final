@@ -37,27 +37,30 @@ const GameDetail = () => {
 
     return (
         loadingGame ? (
-           <Loading/>
-       ): (
-        <ErrorBoundary>
+            <Loading/>
+        ): (
             <Container fixed className='game-detail-container'>
                 <Grid container 
                     direction="row"
                     justifyContent="center"
                     alignItems="center" className='game-detail-title'>
-                        <Typography variant='h5'>
+                        <Typography component={'span'} variant='h5'>
                             {game.name}
                         </Typography>
                 </Grid>
-               
+            
                 <Suspense fallback={<Loading/>}>
-                    <Grid className='game-carrousel-container'>
-                        <CarrouselList images={gameScreenshots.results}/>
-                    </Grid>
+                    {
+                        gameScreenshots.results?.length > 0 
+                        &&  <Grid className='game-carrousel-container'>
+                                <CarrouselList images={gameScreenshots.results}/>
+                            </Grid>
+                    }
+                    
                 </Suspense>
             
                 <Grid className='game-detail-description'>
-                    <Typography variant='body1'>
+                    <Typography component={'span'} variant='body1'>
                         {parse(game.description)}
                     </Typography>
                 </Grid>
@@ -72,10 +75,8 @@ const GameDetail = () => {
                         <a href={game.website} rel='noopener noreferrer' target='_blank' className='game-website-link'> Visit game page </a>
                     </Grid>
                 }
-
             </Container>
-        </ErrorBoundary>
-       )
+        )
     )
 }
 

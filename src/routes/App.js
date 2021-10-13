@@ -3,6 +3,7 @@ import {BrowserRouter, Switch, Route, Redirect} from 'react-router-dom'
 
 import Layout from 'components/commons/Layout'
 import NotFound from 'components/commons/NotFound'
+import ErrorBoundary from 'hoc/ErrorBoundary'
 
 const TopGames = lazy(() => import('containers/TopGames'))
 const GamesInPlatform = lazy(() => import('containers/GamesInPlatform'))
@@ -18,7 +19,7 @@ function App() {
               <Route exact path='/game/top' render={() => <TopGames/>}/>
               <Route exact path='/game/platforms' render={() => <GamesInPlatform/>}/>
               <Route exact path='/game/favorites' render={() => <FavoriteGames/>}/>
-              <Route path='/game/:id' render={() => <GameDetail/>}/>
+              <Route path='/game/:id' render={() => <ErrorBoundary> <GameDetail/> </ErrorBoundary>}/>
 
               <Route path="/404" component={NotFound} />
               <Redirect to="/404" />

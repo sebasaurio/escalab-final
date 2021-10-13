@@ -93,7 +93,7 @@ const FavoritesGames = () => {
                                                     released={game.released} 
                                                     metacritic={game.metacritic} 
                                                     genres={game.genres} 
-                                                    platforms={game.platforms}/>
+                                                    platforms={game.platforms.flatMap(inner => inner.platform)}/>
                                                 </ListItem>
                                             ))
                                         }

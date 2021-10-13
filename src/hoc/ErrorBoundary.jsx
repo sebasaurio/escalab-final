@@ -4,8 +4,7 @@ import {Card,CardHeader,CardContent,Typography} from '@material-ui/core'
 class ErrorBoundary extends Component {
     constructor(){
         super()
-        this.state = 
-        {
+        this.state = {
             hasError: false,
             error: '',
             errorInfo: ''
@@ -13,10 +12,7 @@ class ErrorBoundary extends Component {
     }
 
     static getDerivedStateFromError(error){
-        return{
-            hasError : true,
-            error
-        }
+        return { hasError: true };
     }
 
     componentDidCatch(error, errorInfo){
@@ -50,7 +46,7 @@ class ErrorBoundary extends Component {
             )
         }
 
-        return this.props.children
+        return this.props.children;
     }
 }
 
