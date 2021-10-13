@@ -5,7 +5,6 @@ module.exports = {
     entry: "./src/index.js",
     output: {
         path: path.join(__dirname, "public"),
-        publicPath: '/',
         filename: "bundle.js",
     },
     module: {
@@ -49,5 +48,6 @@ module.exports = {
     devtool: "eval-cheap-module-source-map",
     devServer: {
         contentBase: path.join(__dirname, "public"),
+        hot: "only", // hot:true
     },
 }
