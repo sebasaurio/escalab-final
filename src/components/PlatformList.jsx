@@ -25,7 +25,7 @@ const PlatformList = ({platforms, handleOnClick, platformActive}) => (
 PlatformList.propTypes = {
     platforms: PropTypes.array.isRequired,
     handleOnClick: PropTypes.func,
-    platformActive: PropTypes.number
+    platformActive: PropTypes.any
 }
 
 export default PlatformList
