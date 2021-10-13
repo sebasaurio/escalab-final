@@ -2,8 +2,8 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import {Typography, Button} from '@material-ui/core'
 
-import notFound from 'assets/static/images/notfoundfake.jpg'
-import 'assets/styles/notFound.css'
+import notFound from '../../assets/static/images/notfoundfake.jpg'
+import '../../assets/styles/notFound.css'
 
 const NotFound = () => (
     <div className='not-found-container'>

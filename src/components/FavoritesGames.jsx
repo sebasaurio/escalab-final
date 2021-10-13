@@ -1,17 +1,17 @@
 import React,{useState,useEffect} from 'react'
 import {useSelector,useDispatch} from 'react-redux'
-import {clearFavorites, clearSection} from 'actions/index'
+import {clearFavorites, clearSection} from '../actions/index'
 import {Button, ButtonGroup, Card, List, ListItem, Grid} from '@material-ui/core'
 import {ClearAll, ViewHeadline, ViewAgenda} from '@material-ui/icons'
 
 import GameDetail from './GameDescription'
 import Empty from './commons/Empty'
 import RemindMe from './RemindMe'
-import ModalPortal from 'components/commons/ModalPortal'
+import ModalPortal from '../components/commons/ModalPortal'
 
-import { useModal } from 'customHooks/useModal'
+import { useModal } from '../customHooks/useModal'
 
-import 'assets/styles/favoriteGames.css'
+import '../assets/styles/favoriteGames.css'
 
 const FavoritesGames = () => {
     const favoriteGames = useSelector((state) => state.favoriteGames)

@@ -1,8 +1,8 @@
 import { useState} from 'react'
 import axios from 'axios'
 
-import {BASE_URL} from 'constant/index'
-import {GET_PLATFORMS_LIST} from 'constant/index'
+import {BASE_URL} from '../constant/index'
+import {GET_PLATFORMS_LIST} from '../constant/index'
 
 import {useLocalStorate} from './useLocalStorage'
 

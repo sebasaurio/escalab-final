@@ -1,7 +1,7 @@
 import React from 'react'
 import {Grid,CircularProgress} from '@material-ui/core'
 
-import 'assets/styles/loading.css'
+import '../../assets/styles/loading.css'
 
 const Loading = () => {
     return (

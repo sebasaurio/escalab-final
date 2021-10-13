@@ -1,5 +1,5 @@
 import React from 'react'
-import FavoritesGames from 'components/FavoritesGames'
+import FavoritesGames from '../components/FavoritesGames'
 
 const FavoriteGames = () => <FavoritesGames/>
 

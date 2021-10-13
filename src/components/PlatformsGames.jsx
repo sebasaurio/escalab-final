@@ -4,7 +4,7 @@ import {useSelector} from 'react-redux'
 import {Card} from '@material-ui/core'
 
 import GameDetail from './GameDescription'
-import 'assets/styles/favoriteGames.css'
+import '../assets/styles/favoriteGames.css'
 
 const PlatformsGames = () => {
     const games = useSelector((state) => state.games)

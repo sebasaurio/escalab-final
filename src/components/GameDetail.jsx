@@ -3,16 +3,15 @@ import {useParams} from 'react-router-dom'
 import parse from 'html-react-parser';
 import {Container, Grid, Typography} from '@material-ui/core'
 
-import {GET_GAME_BY_ID, GET_SCREENSHOTS_BY_GAME_ID} from 'constant/index'
-import {useApiCallExtensible} from 'customHooks/useApiCall'
+import {GET_GAME_BY_ID, GET_SCREENSHOTS_BY_GAME_ID} from '../constant/index'
+import {useApiCallExtensible} from '../customHooks/useApiCall'
 
 import GenresList from './GenresList'
 import PlatformList from './PlatformList'
-import ErrorBoundary from 'hoc/ErrorBoundary'
 
 import Loading from './commons/Loading'
 
-import 'assets/styles/gameDetail.css'
+import '../assets/styles/gameDetail.css'
 
 const CarrouselList = lazy(() => import('./commons/Carrousel/CarrouselList'))
 

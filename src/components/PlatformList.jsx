@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import {Chip} from '@material-ui/core'
 
-import 'assets/styles/platformList.css'
+import '../assets/styles/platformList.css'
 
 const PlatformList = ({platforms, handleOnClick, platformActive}) => (
     <div className='platform-list'>

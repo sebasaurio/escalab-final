@@ -6,7 +6,7 @@ import {KeyboardDatePicker  } from "@material-ui/pickers";
 import {MuiPickersUtilsProvider } from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
 
-import 'assets/styles/remindMe.css'
+import '../assets/styles/remindMe.css'
 
 const RemindMe = () => {
 

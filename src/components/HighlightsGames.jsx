@@ -2,11 +2,11 @@ import React from 'react'
 import {Backdrop,Grid} from '@material-ui/core'
 import {format,startOfMonth,endOfMonth} from 'date-fns'
 
-import {HIGHEST_GAMES} from 'constant/index'
-import {useApiCall} from 'customHooks/useApiCall'
+import {HIGHEST_GAMES} from '../constant/index'
+import {useApiCall} from '../customHooks/useApiCall'
 
 import HighlightGame from './HighlightGame'
-import ErrorBoundary from 'hoc/ErrorBoundary'
+import ErrorBoundary from '../hoc/ErrorBoundary'
 
 const HighlightsGames = () => {
 
