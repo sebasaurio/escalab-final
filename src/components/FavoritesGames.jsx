@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import {useSelector,useDispatch} from 'react-redux'
 import {clearFavorites, clearSection} from '../actions/index'
-import {Button, ButtonGroup, Card, List, ListItem, Grid} from '@material-ui/core'
+import {Button, ButtonGroup, Card, List, ListItem, Grid, Tooltip} from '@material-ui/core'
 import {ClearAll, ViewHeadline, ViewAgenda} from '@material-ui/icons'
 
 import GameDetail from './GameDescription'
@@ -48,7 +48,9 @@ const FavoritesGames = () => {
             {
                 hasFavorites && (
                     <div className='favorite-games-options'>
-                        <Button variant='contained' startIcon={ <ClearAll/>} className='clear-all' onClick={handleClearFavorites}/>
+                        <Tooltip title="Clear all">
+                            <Button variant='contained' startIcon={ <ClearAll/>} className='clear-all' onClick={handleClearFavorites}/>
+                        </Tooltip>
                         <ButtonGroup variant='contained' className='style-buttons'>
                             <Button startIcon={ <ViewAgenda/>} onClick={() => handleChangeViewStyle('Card')} className={`${viewStyle === 'Card' && 'button-style-active'}`}/>
                             <Button startIcon={ <ViewHeadline/>} onClick={() => handleChangeViewStyle('List')} className={`${viewStyle === 'List' && 'button-style-active'}`}/>
@@ -82,7 +84,7 @@ const FavoritesGames = () => {
                             )
                             : (
                                 <Grid container spacing={1}>
-                                    <List className='favorite-as-list'>
+                                    <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }} className='favorite-as-list'>
                                         {
                                             favoriteGames.map(game => (
                                                 <ListItem key={game.id} className='favorite-game'>

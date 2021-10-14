@@ -1,9 +1,8 @@
 import React from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import {useLocation} from 'react-router-dom'
 import {setSection} from '../../actions/index'
 
-import {Drawer, Toolbar, Typography, Divider, List, ListItem, ListItemText, makeStyles} from '@material-ui/core'
+import {Drawer, Toolbar, Typography, Divider, List, ListItem, ListItemText, Badge, makeStyles} from '@material-ui/core'
 import {Link} from 'react-router-dom'
 
 import logo from '../../assets/static/images/logo.png'
@@ -62,10 +61,8 @@ const useStyles = makeStyles((theme) => ({
 const Menu = () => {
     const classes = useStyles()
     const sectionActive = useSelector((state) => state.sectionActive)
+    const countFavoriteGames = useSelector((state) => state.favoriteGames).length
     const dispatch = useDispatch()
-
-    const location = useLocation()
-    console.log(location.pathname.split("/").at(-1))
 
     const handleSetSection = (section) => {
         dispatch(setSection(section))
@@ -94,7 +91,16 @@ const Menu = () => {
                             ["Top", "Platforms", "Favorites"].map((text) => (
                                 <Link key={text} to={`/game/${text.toLowerCase()}`} className={classes.link} onClick={() => handleSetSection(text)}>
                                     <ListItem button className={`${classes.linkItem} ${text.toLowerCase() === sectionActive.toLowerCase() && classes.linkActive}`}>
-                                        <ListItemText primary={text}/>
+                                       {
+                                           text === "Favorites" ? (
+                                            <Badge badgeContent={countFavoriteGames} color="primary">
+                                                <ListItemText primary={text}/>
+                                            </Badge>
+                                           )
+                                           : (
+                                                <ListItemText primary={text}/>
+                                           )
+                                       }
                                     </ListItem>
                                 </Link>
                             ))

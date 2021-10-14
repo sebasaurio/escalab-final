@@ -36,6 +36,7 @@ const GameDetail = () => {
             method: 'GET',
             url: GET_SCREENSHOTS_BY_GAME_ID(id)
         })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
     const handleGoBack = () => {
