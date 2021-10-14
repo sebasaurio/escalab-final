@@ -49,6 +49,9 @@ const GamesInPlatform = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [platformId])
 
+    useEffect(() => {
+        dispatch(setPlatform(''))
+    }, [])
 
     return (
         <div>

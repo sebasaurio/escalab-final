@@ -55,6 +55,9 @@ const useStyles = makeStyles((theme) => ({
     },
     dividerColor:{
         backgroundColor: '#adadad'
+    },
+    badgeSize: {
+        fontSize: 20
     }
 }))
 
@@ -93,7 +96,7 @@ const Menu = () => {
                                     <ListItem button className={`${classes.linkItem} ${text.toLowerCase() === sectionActive.toLowerCase() && classes.linkActive}`}>
                                        {
                                            text === "Favorites" ? (
-                                            <Badge badgeContent={countFavoriteGames} color="primary">
+                                            <Badge badgeContent={countFavoriteGames} color="primary" className={classes.badgeSize}>
                                                 <ListItemText primary={text}/>
                                             </Badge>
                                            )
