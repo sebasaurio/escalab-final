@@ -4,17 +4,17 @@ import parse from 'html-react-parser';
 import {Container, Grid, Typography} from '@material-ui/core'
 import {KeyboardBackspace} from '@material-ui/icons'
 
-import {GET_GAME_BY_ID, GET_SCREENSHOTS_BY_GAME_ID} from '../constant/index'
-import {useApiCallExtensible} from '../customHooks/useApiCall'
+import {GET_GAME_BY_ID, GET_SCREENSHOTS_BY_GAME_ID} from '../../constant/index'
+import {useApiCallExtensible} from '../../customHooks/useApiCall'
 
-import GenresList from './GenresList'
-import PlatformList from './PlatformList'
+import GenresList from '../genre/GenresList'
+import PlatformList from '../platform/PlatformList'
 
-import Loading from './commons/Loading'
+import Loading from '../commons/Loading'
 
-import '../assets/styles/gameDetail.css'
+import '../../assets/styles/gameDetail.css'
 
-const CarrouselList = lazy(() => import('./commons/Carrousel/CarrouselList'))
+const CarrouselList = lazy(() => import('../commons/Carrousel/CarrouselList'))
 
 const GameDetail = () => {
     const {id} = useParams()

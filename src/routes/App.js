@@ -8,7 +8,7 @@ import ErrorBoundary from '../hoc/ErrorBoundary'
 const TopGames = lazy(() => import('../containers/TopGames'))
 const GameInPlatform = lazy(() => import('../containers/GameInPlatform'))
 const FavoriteGames = lazy(() => import('../containers/FavoriteGames'))
-const GameDetail = lazy(() => import('../components/GameDetail'))
+const GameDetail = lazy(() => import('../components/game/GameDetail'))
 
 function App() {
   return (

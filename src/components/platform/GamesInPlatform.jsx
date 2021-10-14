@@ -1,15 +1,15 @@
 import React, {useEffect, useState} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import {setGames, setPlatform} from '../actions/index'
+import {setGames, setPlatform} from '../../actions/index'
 
-import PlatformsGames from '../components/PlatformsGames'
-import PlatformList from '../components/PlatformList'
+import PlatformsGames from './PlatformsGames'
+import PlatformList from './PlatformList'
 
-import { useGetPlatforms } from '../customHooks/useGetPlatforms'
-import { FILTER_PLATFORMS_NAMES, GET_GAMES_BY_PLATFORM_ID} from '../constant/index'
+import { useGetPlatforms } from '../../customHooks/useGetPlatforms'
+import { FILTER_PLATFORMS_NAMES, GET_GAMES_BY_PLATFORM_ID} from '../../constant/index'
 import axios from 'axios'
 
-import Loading from '../components/commons/Loading'
+import Loading from '../commons/Loading'
 
 const GamesInPlatform = () => {
     const [loading, setLoading] = useState(true)
