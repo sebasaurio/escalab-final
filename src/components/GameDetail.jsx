@@ -1,7 +1,8 @@
 import React, {useEffect, lazy, Suspense} from 'react'
-import {useParams} from 'react-router-dom'
+import {useParams, useHistory} from 'react-router-dom'
 import parse from 'html-react-parser';
 import {Container, Grid, Typography} from '@material-ui/core'
+import {KeyboardBackspace} from '@material-ui/icons'
 
 import {GET_GAME_BY_ID, GET_SCREENSHOTS_BY_GAME_ID} from '../constant/index'
 import {useApiCallExtensible} from '../customHooks/useApiCall'
@@ -17,6 +18,7 @@ const CarrouselList = lazy(() => import('./commons/Carrousel/CarrouselList'))
 
 const GameDetail = () => {
     const {id} = useParams()
+    const history = useHistory()
 
     const {response: game, loading: loadingGame, fetchData: fetchGame} = useApiCallExtensible()
     const {response : gameScreenshots, fetchData: fetchScreenshots} = useApiCallExtensible()
@@ -26,19 +28,32 @@ const GameDetail = () => {
             method: 'GET',
             url: GET_GAME_BY_ID(id)
         })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[])
 
+    useEffect(() => {
         fetchScreenshots({
             method: 'GET',
             url: GET_SCREENSHOTS_BY_GAME_ID(id)
         })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
+
+    const handleGoBack = () => {
+        history.goBack()
+    }
 
     return (
         loadingGame ? (
             <Loading/>
         ): (
             <Container fixed className='game-detail-container'>
+                <Grid container 
+                    direction="row"
+                    justifyContent="flex-start"
+                    alignItems="flex-start">
+                        <KeyboardBackspace onClick={handleGoBack}/>
+                </Grid>
+
                 <Grid container 
                     direction="row"
                     justifyContent="center"
@@ -50,7 +65,7 @@ const GameDetail = () => {
             
                 <Suspense fallback={<Loading/>}>
                     {
-                        gameScreenshots.results?.length > 0 
+                        gameScreenshots?.results?.length > 0 
                         &&  <Grid className='game-carrousel-container'>
                                 <CarrouselList images={gameScreenshots.results}/>
                             </Grid>

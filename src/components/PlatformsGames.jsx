@@ -1,7 +1,7 @@
 import React from 'react'
 import {useSelector} from 'react-redux'
 
-import {Card} from '@material-ui/core'
+import {Card, Container} from '@material-ui/core'
 
 import GameDetail from './GameDescription'
 import '../assets/styles/favoriteGames.css'
@@ -10,7 +10,7 @@ const PlatformsGames = () => {
     const games = useSelector((state) => state.games)
 
     return (
-        <div>
+        <Container fixed>
            {
                games.map(game => (
                 <Card key={game.id} className='favorite-game'>
@@ -24,7 +24,7 @@ const PlatformsGames = () => {
                 </Card> 
                ))
            }
-        </div>
+        </Container>
     )
 }
 

@@ -12,10 +12,11 @@ import axios from 'axios'
 import Loading from '../components/commons/Loading'
 
 const GamesInPlatform = () => {
+    const [loading, setLoading] = useState(true)
+
     const {platforms, getPlatforms} = useGetPlatforms()
     const [platformId, setPlatformId] = useState(undefined)
 
-    const games = useSelector((state) => state.games)
     const platformActive = useSelector((state) => state.platformActive)
     
     const dispatch = useDispatch()
@@ -26,11 +27,15 @@ const GamesInPlatform = () => {
     }
 
     const getGames = async (id) => {
+        setLoading(true)
         try{
             const result = await axios.get(GET_GAMES_BY_PLATFORM_ID(id))
             dispatch(setGames(result.data.results))
         }catch(error){
             console.log(error)
+        }
+        finally{
+            setLoading(false)
         }
     }
 
@@ -56,9 +61,9 @@ const GamesInPlatform = () => {
            }
 
            {
-               games.length === 0
-               ? <Loading/>
-               : <PlatformsGames/>
+                loading
+                ? <Loading/>
+                : <PlatformsGames/>
            }
         </div>
     )

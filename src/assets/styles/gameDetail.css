@@ -24,7 +24,10 @@
 }
 
 .game-website-link:hover{
-    background-color: #4a99b5;
+    background-color: #1C6EA4;
+    border: 7px solid #1C6EA4;
+    border-radius: 10px;
+    color: #ededed
 }
 
 .game-carrousel-container{
