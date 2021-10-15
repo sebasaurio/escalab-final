@@ -1,28 +1,29 @@
-import React, {lazy, Suspense} from 'react'
-import {BrowserRouter, Switch, Route} from 'react-router-dom'
+import React, {lazy} from 'react'
+import {BrowserRouter, Switch, Route, Redirect} from 'react-router-dom'
 
 import Layout from '../components/commons/Layout'
 import NotFound from '../components/commons/NotFound'
+import ErrorBoundary from '../hoc/ErrorBoundary'
 
 const TopGames = lazy(() => import('../containers/TopGames'))
-const GamesInPlatform = lazy(() => import('../containers/GamesInPlatform'))
+const GameInPlatform = lazy(() => import('../containers/GameInPlatform'))
 const FavoriteGames = lazy(() => import('../containers/FavoriteGames'))
-const GameDetail = lazy(() => import('../components/GameDetail'))
+const GameDetail = lazy(() => import('../components/game/GameDetail'))
 
 function App() {
   return (
     <BrowserRouter>
       <Layout>
-         <Suspense fallback={<span>Cargando</span>}>
           <Switch>
-              <Route exact path='/' />
+              <Route exact path='/' render={() => <TopGames/>}/>
               <Route exact path='/game/top' render={() => <TopGames/>}/>
-              <Route exact path='/game/platforms' render={() => <GamesInPlatform/>}/>
+              <Route exact path='/game/platforms' render={() => <GameInPlatform/>}/>
               <Route exact path='/game/favorites' render={() => <FavoriteGames/>}/>
-              <Route path='/game/:id' render={() => <GameDetail/>}/>
-              <Route component={NotFound}/>
+              <Route path='/game/:id' render={() => <ErrorBoundary> <GameDetail/> </ErrorBoundary>}/>
+
+              <Route path="/404" component={NotFound} />
+              <Redirect to="/404" />
             </Switch>
-         </Suspense>
       </Layout>
     </BrowserRouter>
   );

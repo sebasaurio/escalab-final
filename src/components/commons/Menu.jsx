@@ -1,14 +1,12 @@
 import React from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import {setPlatform, setSection} from '../../actions/index'
-import PropTypes from 'prop-types'
+import {setSection} from '../../actions/index'
 
-import {Drawer, Toolbar, Typography, Divider, List, ListItem, ListItemText, makeStyles} from '@material-ui/core'
+import {Drawer, Toolbar, Typography, Divider, List, ListItem, ListItemText, Badge, makeStyles} from '@material-ui/core'
 import {Link} from 'react-router-dom'
 
 import logo from '../../assets/static/images/logo.png'
 
-import PlatformsMenu from './PlatformsMenu'
 import Footer from './Footer'
 
 const drawerWidth = 240;
@@ -57,22 +55,20 @@ const useStyles = makeStyles((theme) => ({
     },
     dividerColor:{
         backgroundColor: '#adadad'
+    },
+    badgeSize: {
+        fontSize: 20
     }
 }))
 
-const Menu = ({parentPlatforms}) => {
+const Menu = () => {
     const classes = useStyles()
-
     const sectionActive = useSelector((state) => state.sectionActive)
-    const platformActive = useSelector((state) => state.platformActive)
+    const countFavoriteGames = useSelector((state) => state.favoriteGames).length
     const dispatch = useDispatch()
 
     const handleSetSection = (section) => {
         dispatch(setSection(section))
-    }
-
-    const handleSetPlatform = (platform) => {
-        dispatch(setPlatform(platform))
     }
 
     return (
@@ -89,7 +85,7 @@ const Menu = ({parentPlatforms}) => {
                     <Toolbar>
                         <img src={logo} alt="react games" width='32px' height='32px'/>
                         <Typography variant='h6' className={classes.pageName}>
-                            React Games
+                            {' '} React Games
                         </Typography>
                     </Toolbar>
                     <Divider light={true} className={classes.dividerColor}/>
@@ -98,25 +94,27 @@ const Menu = ({parentPlatforms}) => {
                             ["Top", "Platforms", "Favorites"].map((text) => (
                                 <Link key={text} to={`/game/${text.toLowerCase()}`} className={classes.link} onClick={() => handleSetSection(text)}>
                                     <ListItem button className={`${classes.linkItem} ${text.toLowerCase() === sectionActive.toLowerCase() && classes.linkActive}`}>
-                                        <ListItemText primary={text}/>
+                                       {
+                                           text === "Favorites" ? (
+                                            <Badge badgeContent={countFavoriteGames} color="primary" className={classes.badgeSize}>
+                                                <ListItemText primary={text}/>
+                                            </Badge>
+                                           )
+                                           : (
+                                                <ListItemText primary={text}/>
+                                           )
+                                       }
                                     </ListItem>
                                 </Link>
                             ))
                         }
                     </List>
                     <Divider light={true} className={classes.dividerColor}/>
-                    {
-                        parentPlatforms?.length > 0 && <PlatformsMenu platforms={parentPlatforms} classes={classes}/>
-                    }
                     <Footer/>
                 </div>
             </Drawer>
         </div>
     )
-}
-
-Menu.propTypes = {
-    parentPlatforms: PropTypes.array.isRequired
 }
 
 export default Menu

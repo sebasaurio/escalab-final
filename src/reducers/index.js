@@ -5,10 +5,20 @@ export const reducer = (state, action) => {
                 ...state,
                 sectionActive: action.payload
             }
-        case '':
+        case 'CLEAR_SECTION':
+            return {
+                ...state,
+                sectionActive: ''
+            }
+        case 'SET_PLATFORM':
             return {
                 ...state,
                 platformActive: action.payload
+            }
+        case 'SET_GAMES':
+            return{
+                ...state,
+                games: action.payload
             }
         case 'SET_FAVORITE':
             return {

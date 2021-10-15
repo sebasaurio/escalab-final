@@ -1,4 +1,4 @@
-import React, {useRef, useState, useEffect} from 'react'
+import {useRef, useState, useEffect} from 'react'
 
 const useHover = () => {
     const [value, setValue] = useState(false)
@@ -18,6 +18,7 @@ const useHover = () => {
                 node.removeEventListener("mouseout", handleMouseOut)
             }
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [ref.current])
 
     return [ref, value]

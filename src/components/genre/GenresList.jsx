@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import {Chip} from '@material-ui/core'
 
-import '../assets/styles/genreList.css'
+import '../../assets/styles/genreList.css'
 
 const GenresList = ({genres}) => {
     return (

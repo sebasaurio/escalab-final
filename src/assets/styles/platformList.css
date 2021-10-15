@@ -4,8 +4,14 @@
 
 .platform-item{
     margin-right: 5px;
+    margin-top: 5px;
 }
 
 .platform-item:hover{
     background-color: #b8d1db;
+}
+
+.platform-active{
+    background-color: #2b2b2b !important;
+    color: #ebebeb;
 }

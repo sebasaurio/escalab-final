@@ -1,12 +1,12 @@
 import React,{useState} from 'react'
 import {useForm, Controller} from 'react-hook-form'
 
-import {TextField, Switch, FormHelperText, Button} from '@material-ui/core'
+import {TextField, Switch, Button, FormHelperText} from '@material-ui/core'
 import {KeyboardDatePicker  } from "@material-ui/pickers";
 import {MuiPickersUtilsProvider } from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
 
-import '../assets/styles/remindMe.css'
+import '../../assets/styles/remindMe.css'
 
 const RemindMe = () => {
 
@@ -43,15 +43,16 @@ const RemindMe = () => {
                             control={control}
                             rules={{ required: true }}
                             defaultValue={dateNow}
-                            render={({field}) => 
+                            render={({ field: { name, value }}) => 
                                 <KeyboardDatePicker
+                                    name={name}
                                     label='Reminder date'
-                                    inputFormat='MM/dd/yyyy'
+                                    inputformat='MM/dd/yyyy'
                                     format='MM/dd/yyyy'
-                                    value={dateNow}
-                                    onChange={setDateNow}
+                                    value={value}
+                                    onChange={(date) => setDateNow(date)}
                                     minDate={new Date()}
-                                    {...field}
+
                                 />}
                         />
 
@@ -59,10 +60,11 @@ const RemindMe = () => {
                             name='SendImages'
                             control={control}
                             defaultValue='no'
+                            rules={{ required: true }}
                             render={({field}) => (
                                     <>
-                                        <Switch color="primary" inputProps={{ 'no': 'yes' }} {...field}/>
-                                        <FormHelperText>Images must send to your mail.</FormHelperText>
+                                        <Switch onChange={(e) => field.onChange(e.target.checked)} color="primary" label='Send images?' inputProps={{ 'no': 'yes' }} {...field}/>
+                                        <FormHelperText>Send images?</FormHelperText>
                                     </>
                                 )
                             }
