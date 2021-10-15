@@ -33,7 +33,7 @@ const GameDetail = ({name, id, short_screenshots, released, metacritic, genres, 
 
             <Grid className='game-carrousel-container'>
                 <Suspense fallback={<Loading/>}>
-                    {<CarrouselList images={short_screenshots}/>}
+                    <CarrouselList images={short_screenshots}/>
                 </Suspense>
             </Grid>
 

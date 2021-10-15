@@ -1,10 +1,11 @@
 import React,{useState,useEffect} from 'react'
 import {useSelector,useDispatch} from 'react-redux'
 import {clearFavorites, clearSection} from '../../actions/index'
-import {Button, ButtonGroup, Card, List, ListItem, Grid, Tooltip} from '@material-ui/core'
+import {Button, ButtonGroup, Card, List, Grid, Tooltip} from '@material-ui/core'
 import {ClearAll, ViewHeadline, ViewAgenda} from '@material-ui/icons'
 
-import GameDetail from '../game/GameDescription'
+import GameDescription from '../game/GameDescription'
+import GameDescriptionList from '../game/gameDescriptionList'
 import Empty from '../commons/Empty'
 import RemindMe from '../remindMe/RemindMe'
 import ModalPortal from '../commons/ModalPortal'
@@ -36,7 +37,6 @@ const FavoritesGames = () => {
     const hasFavorites = favoriteGames.length > 0
 
     useEffect(() => {
-        //https://usehooks.com/usePrevious/
         if(!hasFavorites){
             handleClearSection()
         }
@@ -72,31 +72,31 @@ const FavoritesGames = () => {
                             ? (
                                 favoriteGames.map(game => ( 
                                     <Card key={game.id} className='favorite-game'>
-                                        <GameDetail name={game.name} 
-                                        id={game.id} 
-                                        short_screenshots={game.short_screenshots} 
-                                        released={game.released} 
-                                        metacritic={game.metacritic} 
-                                        genres={game.genres} 
-                                        platforms={game.platforms.flatMap(inner => inner.platform)}/> 
+                                        <GameDescription name={game.name} 
+                                            id={game.id} 
+                                            short_screenshots={game.short_screenshots} 
+                                            released={game.released} 
+                                            metacritic={game.metacritic} 
+                                            genres={game.genres} 
+                                            platforms={game.platforms.flatMap(inner => inner.platform)}/> 
                                     </Card> 
                                 ))
                             )
                             : (
-                                <Grid container spacing={1}>
-                                    <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }} className='favorite-as-list'>
+                                <Grid container>
+                                    <List sx={{ width: '100%', maxWidth: 360 }}>
                                         {
                                             favoriteGames.map(game => (
-                                                <ListItem key={game.id} className='favorite-game'>
-                                                    <GameDetail 
-                                                    name={game.name} 
-                                                    id={game.id} 
-                                                    short_screenshots={game.short_screenshots} 
-                                                    released={game.released} 
-                                                    metacritic={game.metacritic} 
-                                                    genres={game.genres} 
-                                                    platforms={game.platforms.flatMap(inner => inner.platform)}/>
-                                                </ListItem>
+                                                <Card key={game.id} className='favorite-game'>
+                                                    <GameDescriptionList 
+                                                        name={game.name} 
+                                                        id={game.id} 
+                                                        short_screenshots={game.short_screenshots} 
+                                                        released={game.released} 
+                                                        metacritic={game.metacritic} 
+                                                        genres={game.genres} 
+                                                        platforms={game.platforms.flatMap(inner => inner.platform)}/>
+                                                </Card>
                                             ))
                                         }
                                     </List>

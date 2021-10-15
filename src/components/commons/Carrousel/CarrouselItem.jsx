@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, useRef} from 'react'
 import {Skeleton} from '@material-ui/lab'
 import {makeStyles} from '@material-ui/core'
 
@@ -30,16 +30,29 @@ const useStyles = makeStyles(theme => ({
   }));
 
 const CarrouselItem = ({src}) => {
-
     const classes = useStyles()
     const [isLoaded, setIsLoaded] = useState(false)
 
+    const isMounted = useRef()
+
     useEffect(()=>{
+        isMounted.current = true
+        if(isMounted.current){
+          handleLoadImage()
+        }
+
+        return () => {
+          isMounted.current = false
+        }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[])
+
+    const handleLoadImage = () => {
         const image = new Image();
         image.onload = () => setIsLoaded(true);
         image.src = src
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[])
+    }
   
     return(
        isLoaded

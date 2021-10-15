@@ -18,7 +18,7 @@ const GamesInPlatform = () => {
     const [platformId, setPlatformId] = useState(undefined)
 
     const platformActive = useSelector((state) => state.platformActive)
-    
+
     const dispatch = useDispatch()
 
     const handleSetPlatform = (id) => {
@@ -38,7 +38,7 @@ const GamesInPlatform = () => {
             setLoading(false)
         }
     }
-
+    
     useEffect(()=> {
         getPlatforms()
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -51,6 +51,7 @@ const GamesInPlatform = () => {
 
     useEffect(() => {
         dispatch(setPlatform(''))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (
@@ -66,7 +67,7 @@ const GamesInPlatform = () => {
            {
                 loading
                 ? <Loading/>
-                : <PlatformsGames/>
+                : <PlatformsGames games={platformId}/>
            }
         </div>
     )
