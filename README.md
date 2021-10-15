@@ -1,4 +1,3 @@
-
 # Proyecto final - React Games
 
 Este proyecto a sido creado con create-react-app [https://create-react-app.dev/docs/getting-started/]
@@ -53,6 +52,8 @@ Ademas de **conditional rendering** para renderizar ciertos componentes a partir
 
 **High Order Components**, funciones puras y de alto nivel que reciben una funcion/componente de entrada y de salida entrega una funcion/componente nueva. En este caso se implement'o Error Boundary, para controlar los errores producidos en runtime dentro del arbol de componentes, registrando el error y mostrando una interfaz de error personalizada. 
 
+**Code Splitting and Lazy Loading**, Separacion del codigo en peque;os paquetes al realizar la compilacion del proyecto y la carga lazy de componentes de acuerdo a caso de uso.
+
 -----------------------------
 # Adicionales
 
@@ -64,73 +65,17 @@ Para el desarrollo de este sitio, se implementaron diversos hooks que permiten m
 - >useApiCall - useApiCallExtensible: Hooks personalizados para realizar peticiones a la API 
 - >useGetPlatforms : Hook personalizado para solicitar una lista de plataformas a la API y almacenarlas utilizando el hook useLocalStorage, con el objetivo de realizar esta solicitud una sola vez o mientras exista este dato en el local storage
 
-# Getting Started with Create React App
+### Manejo de rutas
+El manejo de las rutas dentro de la aplicacion, fue realizado implementando **react-router-dom** y **Lazy loading**, permitiendo cargar de forma dinamica las rutas y componentes a medida que se van requirendo, reduciendo el peso inicial al cargar la pagina web.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+----------------------------
 
-## Available Scripts
+# Deploy
 
-In the project directory, you can run:
+Este proyecto se encuentra configurado y deployado en Vercel [https://vercel.com/], configurado de forma automatica cuando se realiza un push a Main se realiza el deploy con los nuevos cambios
 
-### `npm start`
+### Scripts disponibles
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+ - > npm run start : Compila la aplicacion en modo desarrollo
+ - > npm run build : Compila la aplicacion en modo produccion
+ - > npm run dev-server: Ejecuta la aplicacion en modo desarrollo en [http://localhost:8080](http://localhost:8080) 
