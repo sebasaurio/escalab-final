@@ -44,73 +44,69 @@ const FavoritesGames = () => {
     },[])
 
     return (
-        <div className='favorite-games-container'>
-            {
-                hasFavorites && (
-                    <div className='favorite-games-options'>
-                        <Tooltip title="Clear all">
-                            <Button variant='contained' startIcon={ <ClearAll/>} className='clear-all' onClick={handleClearFavorites}/>
-                        </Tooltip>
-                        <ButtonGroup variant='contained' className='style-buttons'>
-                            <Button startIcon={ <ViewAgenda/>} onClick={() => handleChangeViewStyle('Card')} className={`${viewStyle === 'Card' && 'button-style-active'}`}/>
-                            <Button startIcon={ <ViewHeadline/>} onClick={() => handleChangeViewStyle('List')} className={`${viewStyle === 'List' && 'button-style-active'}`}/>
-                        </ButtonGroup>
-                    </div>
-                )
-            }
-            <div className='favorite-games-list'>
+            <>
             {
                 !hasFavorites
                 ? <Empty/>
                 : (
-                    <>
-                        <Button variant='contained' onClick={handleOpenModal} className='reminder-button'>
-                            Remind Me!
-                        </Button>
-                        {
-                            viewStyle === 'Card'
-                            ? (
-                                favoriteGames.map(game => ( 
-                                    <Card key={game.id} className='favorite-game'>
-                                        <GameDescription name={game.name} 
-                                            id={game.id} 
-                                            short_screenshots={game.short_screenshots} 
-                                            released={game.released} 
-                                            metacritic={game.metacritic} 
-                                            genres={game.genres} 
-                                            platforms={game.platforms.flatMap(inner => inner.platform)}/> 
-                                    </Card> 
-                                ))
-                            )
-                            : (
-                                <Grid container>
-                                    <List sx={{ width: '100%', maxWidth: 360 }}>
-                                        {
-                                            favoriteGames.map(game => (
-                                                <Card key={game.id} className='favorite-game'>
-                                                    <GameDescriptionList 
-                                                        name={game.name} 
-                                                        id={game.id} 
-                                                        short_screenshots={game.short_screenshots} 
-                                                        released={game.released} 
-                                                        metacritic={game.metacritic} 
-                                                        genres={game.genres} 
-                                                        platforms={game.platforms.flatMap(inner => inner.platform)}/>
-                                                </Card>
-                                            ))
-                                        }
-                                    </List>
-                                </Grid>
-                            )  
-                        }
-                        <ModalPortal isOpen={modal} onClose={handleCloseModal}>
-                            <RemindMe/>
-                        </ModalPortal>
-                    </>
+                    <div className='favorite-games-container'>
+                        <div className='favorite-games-list'>
+                            <div className='favorite-games-options'>
+                                <Tooltip title="Clear all">
+                                    <Button variant='contained' startIcon={ <ClearAll/>} className='clear-all' onClick={handleClearFavorites}/>
+                                </Tooltip>
+                                <ButtonGroup variant='contained' className='style-buttons'>
+                                    <Button startIcon={ <ViewAgenda/>} onClick={() => handleChangeViewStyle('Card')} className={`${viewStyle === 'Card' && 'button-style-active'}`}/>
+                                    <Button startIcon={ <ViewHeadline/>} onClick={() => handleChangeViewStyle('List')} className={`${viewStyle === 'List' && 'button-style-active'}`}/>
+                                </ButtonGroup>
+                            </div>
+                            <Button variant='contained' onClick={handleOpenModal} className='reminder-button'>
+                                Remind Me!
+                            </Button>
+                            {
+                                viewStyle === 'Card'
+                                ? (
+                                    favoriteGames.map(game => ( 
+                                        <Card key={game.id} className='favorite-game'>
+                                            <GameDescription name={game.name} 
+                                                id={game.id} 
+                                                short_screenshots={game.short_screenshots} 
+                                                released={game.released} 
+                                                metacritic={game.metacritic} 
+                                                genres={game.genres} 
+                                                platforms={game.platforms.flatMap(inner => inner.platform)}/> 
+                                        </Card> 
+                                    ))
+                                )
+                                : (
+                                    <Grid container>
+                                        <List sx={{ width: '100%', maxWidth: 360 }}>
+                                            {
+                                                favoriteGames.map(game => (
+                                                    <Card key={game.id} className='favorite-game'>
+                                                        <GameDescriptionList 
+                                                            name={game.name} 
+                                                            id={game.id} 
+                                                            short_screenshots={game.short_screenshots} 
+                                                            released={game.released} 
+                                                            metacritic={game.metacritic} 
+                                                            genres={game.genres} 
+                                                            platforms={game.platforms.flatMap(inner => inner.platform)}/>
+                                                    </Card>
+                                                ))
+                                            }
+                                        </List>
+                                    </Grid>
+                                )  
+                            }
+                            <ModalPortal isOpen={modal} onClose={handleCloseModal}>
+                                <RemindMe/>
+                            </ModalPortal>
+                        </div>
+                    </div>
                 )
             }
-            </div>
-        </div>
+            </>
     )
 }
 
