@@ -1,3 +1,69 @@
+
+# Proyecto final - React Games
+
+Este proyecto a sido creado con create-react-app [https://create-react-app.dev/docs/getting-started/]
+
+## Descripción 
+
+Sitio que permite visualizar listas de videojuegos de distintas plataformas y mas importantes del ultimo tiempo, permitiendo marcara aquellos juegos de interes como favoritos, los cuales pueden se almacenan para su visualizaci'on en el apartado correspondiente.
+
+Este sitio contiene tres rutas principales:
+
+- >Top : Lista de videojuegos mas vistos del mes
+- >Platforms : Lista de videojuegos seleccionables por plataforma
+- >Favorites : Lista de videojuegos marcados como favoritos
+
+Para la obtencion de los datos, se utiliza la siguiente API [https://api.rawg.io/api], para revisar la documentacion adjunto la url correspondiente [https://rawg.io/apidocs]
+
+Es posible visualizar el detalle adicional de un videojuego, presionando el boton de "View More", lo que desencadena una solicitud a la API de __rawg.io__, y redirigiendo a la ruta correspondiente del detalle, donde se encontrara informacion e imagenes adicionales.
+
+Dentro del apartado de videojuegos favoritos, es posible modificar el estilo visual de la lista de juegos favoritos, de forma inicial se muestran como una "Card" para cada uno de ellos, si se presiona el boton de cambio de estilo, automaticamente se modificara la interfaz cambiando el orden de los elementos.
+
+Adicional a esto, existe un formulario que permite "enviar" un recordatorio al correo indicado y en la fecha seleccionada la lista de los videojuegos marcados como favoritos. El proceso de enviar no se encuentra realizado, pues no forma parte de la evaluacion, actualmente se muestra por consola los datos del formulario ingresados.
+
+-----------------------------
+
+# Patrones utilizados
+
+###  Patrones de arquitectura
+
+Para el manejo del estado de la aplicaci'on se utiliz'o **Redux** y el patr'on **Flux** para facilitar la gestion del estado separandolo completamente de los componentes, donde los datos son manejados mediante acciones que desencadecan la actualizacion de la vista.
+
+Para la estructura de archivos dentro del proyecto se ha implementado Clean Architecture, separando por carpetas y contexto los archivos.
+
+- Actions : 
+- Assets
+    -  Static
+    -  Styles
+- Components
+- Constants
+- Containers
+- CustomHooks
+- HOC
+- Reducers
+- Routes
+
+###  Patrones de diseño
+
+Se utilizaron diversos patrones que permiten controlar el renderizado y el manejo de propiedades entre componentes. Entre ellos se implemento el patron **Stateless y Statefull components**. Aquellos **Statefull components** manejan y controlan datos y **Stateless components** solo presentan los datos.
+
+Ademas de **conditional rendering** para renderizar ciertos componentes a partir de una condicion, cambiando la informacion entregada a la interfaz del usuario u ocultando aquellos componentes.
+
+**Controlled componentes** que renderizan los elementos del formulario y los controla manteniendo los datos del formulario en el state
+
+**High Order Components**, funciones puras y de alto nivel que reciben una funcion/componente de entrada y de salida entrega una funcion/componente nueva. En este caso se implement'o Error Boundary, para controlar los errores producidos en runtime dentro del arbol de componentes, registrando el error y mostrando una interfaz de error personalizada. 
+
+-----------------------------
+# Adicionales
+
+Para el desarrollo de este sitio, se implementaron diversos hooks que permiten manejar ciertas funcionalidades y caracteristicas de manera funcional.
+
+- >useModal : Permite desplegar un modal manejando un React Portal, renderizando un child en un nodo fuera del DOM del componente padre 
+- >useLocalStorage: Permite utilizar el localStorage del navegador para almacenar informacion y consultarla
+- >useHover: Detecta cuando se posiciona el mouse sobre un elemento, entregando la referencia, usando el hook useRef y un booleano.
+- >useApiCall - useApiCallExtensible: Hooks personalizados para realizar peticiones a la API 
+- >useGetPlatforms : Hook personalizado para solicitar una lista de plataformas a la API y almacenarlas utilizando el hook useLocalStorage, con el objetivo de realizar esta solicitud una sola vez o mientras exista este dato en el local storage
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
