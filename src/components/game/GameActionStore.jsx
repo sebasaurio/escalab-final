@@ -1,7 +1,12 @@
 import React,{useState, useEffect} from 'react'
 import {connect} from 'react-redux'
+<<<<<<< HEAD:src/components/game/GameActionStore.jsx
 import {setFavorite, deleteFavorite} from '../../actions/index'
 import {Card, CardActions, Typography, Button, Container} from '@material-ui/core'
+=======
+import {setFavorite, deleteFavorite} from '../actions/index'
+import {Card, CardActions, Typography, Button} from '@material-ui/core'
+>>>>>>> main:src/components/HighlightGame.jsx
 import {Favorite, HighlightOff} from '@material-ui/icons'
 
 import GameDescription from './GameDescription'
