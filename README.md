@@ -4,7 +4,7 @@ Este proyecto a sido creado con create-react-app [https://create-react-app.dev/d
 
 ## Descripción 
 
-Sitio que permite visualizar listas de videojuegos de distintas plataformas y más importantes del último tiempo, permitiendo marcar aquellos juegos de interés como favoritos, los cuales pueden se almacenan para su visualización en el apartado correspondiente.
+Sitio que permite visualizar listas de videojuegos de distintas plataformas y más importantes del último tiempo, permitiendo marcar aquellos juegos de interés como favoritos, los cuales se almacenan para su visualización en el apartado correspondiente.
 
 Este sitio contiene tres rutas principales:
 
@@ -14,7 +14,7 @@ Este sitio contiene tres rutas principales:
 
 Para la obtención de los datos, se utiliza la siguiente API [https://api.rawg.io/api], para revisar la documentacion adjunto la url correspondiente [https://rawg.io/apidocs]
 
-Es posible visualizar el detalle adicional de un videojuego, presionando el botón de "View More", lo que desencadena una solicitud a la API de __rawg.io__, y redirigiendo a la ruta correspondiente del detalle, donde se encontrara informacion e imagenes adicionales.
+Es posible visualizar el detalle adicional de un videojuego, presionando el botón de "View More", lo que desencadena una solicitud a la API de __rawg.io__, y redirigiendo a la ruta correspondiente del detalle, donde se encontrará información e imagenes adicionales.
 
 Dentro del apartado de videojuegos favoritos, es posible modificar el estilo visual de la lista de juegos favoritos, de forma inicial se muestran como una "Card" para cada uno de ellos, si se presiona el botón de cambio de estilo, automáticamente se modificará la interfaz cambiando el orden de los elementos.
 
@@ -31,8 +31,7 @@ Para el manejo del estado de la aplicación se utilizó **Redux** y el patrón *
 
 Para la estructura de archivos dentro del proyecto se ha implementado Clean Architecture, separando por carpetas y contexto los archivos.
 
-
-- Actions : 
+- Actions
 - Assets
     -  Static
     -  Styles
@@ -54,7 +53,7 @@ Además de **conditional rendering** para renderizar ciertos componentes a parti
 
 **High Order Components**, funciones puras y de alto nivel que reciben una función/componente de entrada y de salida entrega una función/componente nueva. En este caso se implementó Error Boundary, para controlar los errores producidos en runtime dentro del árbol de componentes, registrando el error y mostrando una interfaz de error personalizada. 
 
-**Code Splitting and Lazy Loading**Separación del código en pequeños paquetes al realizar la compilación del proyecto y la carga lazy de componentes de acuerdo a caso de uso.
+**Code Splitting and Lazy Loading** separación del código en pequeños paquetes al realizar la compilación del proyecto y la carga lazy de componentes de acuerdo a caso de uso.
 
 
 -----------------------------
@@ -69,6 +68,7 @@ Para el desarrollo de este sitio, se implementaron diversos hooks que permiten m
 - >useGetPlatforms : Hook personalizado para solicitar una lista de plataformas a la API y almacenarlas utilizando el hook useLocalStorage, con el objetivo de realizar esta solicitud una sola vez o mientras exista este dato en el local storage
 
 ### Manejo de rutas
+
 El manejo de las rutas dentro de la aplicación, fue realizado implementando **react-router-dom** y **Lazy loading**, permitiendo cargar de forma dinámica las rutas y componentes a medida que se van requiriendo, reduciendo el peso inicial al cargar la página web.
 
 
