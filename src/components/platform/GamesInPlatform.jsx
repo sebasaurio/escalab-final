@@ -58,7 +58,7 @@ const GamesInPlatform = () => {
         <div>
            {
                <PlatformList
-                platforms={platforms.results.filter(mainPlatform => FILTER_PLATFORMS_NAMES.includes(mainPlatform.name.toLowerCase())).flatMap(platforms => platforms.platforms)} 
+                platforms={platforms.results.find(mainPlatform => FILTER_PLATFORMS_NAMES.includes(mainPlatform.name.toLowerCase())).flatMap(platforms => platforms.platforms)} 
                 platformActive={platformActive}
                 handleOnClick={handleSetPlatform}
                 />
