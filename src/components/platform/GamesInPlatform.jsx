@@ -14,7 +14,7 @@ import Loading from '../commons/Loading'
 const GamesInPlatform = () => {
     const [loading, setLoading] = useState(true)
 
-    const {platforms, getPlatforms} = useGetPlatforms()
+    const {platforms, getPlatforms, loading: loadingPlatforms} = useGetPlatforms()
     const [platformId, setPlatformId] = useState(undefined)
 
     const platformActive = useSelector((state) => state.platformActive)
@@ -57,11 +57,11 @@ const GamesInPlatform = () => {
     return (
         <div>
            {
-               <PlatformList
-                platforms={platforms.results.find(mainPlatform => FILTER_PLATFORMS_NAMES.includes(mainPlatform.name.toLowerCase())).flatMap(platforms => platforms.platforms)} 
-                platformActive={platformActive}
-                handleOnClick={handleSetPlatform}
-                />
+               !loadingPlatforms && 
+                <PlatformList
+                    platforms={platforms.results?.filter(mainPlatform => FILTER_PLATFORMS_NAMES.includes(mainPlatform.name.toLowerCase())).flatMap(platforms => platforms.platforms)} 
+                    platformActive={platformActive}
+                    handleOnClick={handleSetPlatform}/>
            }
 
            {

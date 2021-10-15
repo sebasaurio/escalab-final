@@ -7,7 +7,6 @@ import emptyImage from '../../assets/static/images/empty-crash.png'
 import '../../assets/styles/empty.css'
 
 const Empty = () => {
-
     const history = useHistory();
 
     const handleBackHistory = () => history.goBack()
